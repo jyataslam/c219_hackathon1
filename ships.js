@@ -1,15 +1,5 @@
-/* Code for sortable
-  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
- */
 
-$(document).ready(startGame);
-var game = null;
-function startGame(){
-    game = new Shipyard;
-}
-
-class Shipyard{
+class Harbor{
     constructor(){
         this.allShips = [];
         this.requirements = {
@@ -29,7 +19,7 @@ class Shipyard{
         }
     }
     render(position){
-        $('.shipyard').append(this.allShips[position].ship);
+        $('.harbor').append(this.allShips[position].ship);
     }
 }
 
@@ -52,7 +42,6 @@ class Ship{
             this.currentStones.push(newStone);//record in array; useful when sending to destination later
             this.render(newStone); //comment out till attached with html + css or error
             console.log(`${color} stone was added`);
-            console.log(`ship capacity: ${this.currentStones.length}`);
         }else{
             console.log(`Ship is full. Cannot add stone.`);
         }
@@ -76,11 +65,5 @@ class Ship{
     specialCard(){
         $('.ship').attr('id', 'sortable');
         $('#sortable').sortable();
-    }
-}
-
-class Dock{
-    constructor(){
-        
     }
 }
