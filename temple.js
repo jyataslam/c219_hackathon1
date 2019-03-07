@@ -1,4 +1,10 @@
+$(document).ready(initializeApp);
+
+function initializeApp() {
+}
+
 class Temple {
+    debugger;
     constructor(image) {
         this.stones = [
             [], [], [], []
@@ -6,13 +12,13 @@ class Temple {
         this.current = 0;
         this.image = image;
     }
-    addStones(inputStones) {
-        //b, w, w, b, w, w, b, w, b, b, w
+    addStones(inputStones) { //current ship's current stones = inputStones
+        //b, w, w, b
         for(var i = 0; i < inputStones.length; i++) {
             var currentStone = inputStones[i];
             this.stones[this.current].push(currentStone);
             // currentStone++;
-            if(currentStone  % 4 === 0) {
+            if(currentStone === 4) {
                 this.current = 0;
             } else {
                 this.current++;
@@ -30,7 +36,20 @@ class Temple {
             }
         }
     }
+    displayShip() { //display ship if both ship button and dock button have been clicked
+        if () {
+            $(".temple-container").append(this.sailingship.currentstones[i])
+        }
+    }
     displayStones() {
+        $("#templeBlock1").append(this.stones[0]);
+        $("#templeBlock2").append(this.stones[1]);
+        $("#templeBlock3").append(this.stones[2]);
+        $("#templeBlock4").append(this.stones[3]);
+    }
+    handleDockClick() {
 
     }
 }
+
+var temple = new Temple(image);
