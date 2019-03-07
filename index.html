@@ -1,152 +1,143 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
-    <title></title>
-
-    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-    <script type="text/javascript">
-
-        // class GameStats {
-        //     constructor() {
-        //         this.shipDockCount = 0; //how many ships have been docked?
-        //         this.currentRoundEnd = false; //have all 4 ships been docked?
-        //         this.gameRound = 1; //1 through 6
-        //     }
-        //     increaseShipDockCount() {
-        //         //if sail ship has been clicked
-        //         this.shipDockCount++;
-        //     }
-        //     checkCurrentRoundEnd() {
-        //         //if 4 ships have been docked
-        //         this.currentRoundEnd = true;
-        //     }
-        //     increaseGameRound() {
-        //         if (this.currentRoundEnd = true && this.gameRound < 6) {
-        //             this.gameRound++;
-        //         }
-        //     }
-        // }
-        //
-        // var game = new GameStats();
-        //
-        // class PlayerStats {
-        //     constructor(name, color, turn) {
-        //         this.playerName = name;
-        //         this.playerColor = color; //black or white
-        //         this.lastTurn = null;
-        //         this.currentTurn = turn; //2 players so alternate
-        //         this.gameRound = 1;
-        //         this.templePoints = 0;
-        //         this.pyramidPoints = 0;
-        //         this.burialPoints = 0;
-        //         this.obelisksPoints = 0;
-        //         this.currentPoints = 0;
-        //         this.totalPoints = 0;
-        //     }
-        //     displayPlayerName() {
-        //         $("").text(this.playerName);
-        //     }
-        //     checkCurrentTurn() {
-        //         //after each round, lastTurn = currentTurn, currentTurn = opposite of lastTurn
-        //         if (this.gameRound > 1) {
-        //             this.lastTurn = this.currentTurn;
-        //             this.currentTurn != this.currentTurn; //...?
-        //         }
-        //     }
-        //     getTemplePoints() {
-        //
-        //     }
-        //     getCurrentPoints() { //if round 1 - 5, temple and pyramid points only
-        //
-        //     }
-        //     getTotalPoints() { //after round 6, temple, pyramid, burial, obelisks, statue card points
-        //
-        //     }
-        // }
-        //
-        // var player1 = new PlayerStats("Amy", "black", true);
-        // var player2 = new PlayerStats("Brandon", "white", false);
-
-        class Temple {
-            constructor(image) {
-                this.stones = [
-                    [], [], [], []
-                ];
-                this.current = 0;
-                this.image = image;
-            }
-            addStones(inputStones) {
-                //b, w, w, b, w, w, b, w, b, b, w
-                for(var i = 0; i < inputStones.length; i++) {
-                    var currentStone = inputStones[i];
-                    this.stones[this.current].push(currentStone);
-                    // currentStone++;
-                    if(currentStone  % 4 === 0) {
-                        this.current = 0;
-                    } else {
-                        this.current++;
-                    }
-                }
-            }
-            countStones() {
-                var blackCount = 0;
-                var whiteCount = 0;
-                for (var i = 0; i < this.stones.length; i++) {
-                    if (this.stones[i] === "black") {
-                        blackCount++;
-                    } else if (this.stones[i] === "white") {
-                        whiteCount++;
-                    }
-                }
-            }
-            displayStones() {
-
-            }
-        }
-
-        // var pyramidStones = [
-        //     {
-        //         points: 2,
-        //         selector: '#pyramidstone1'
-        //     },
-        //     {
-        //         points: 1,
-        //         selector: '#pyramidstone2'
-        //     },
-        //     {
-        //         points: 3,
-        //         selector: '#pyramidstone3'
-        //     }
-        // ];
-        //
-        // class BurialChamber {
-        //     constructor() {
-        //         this.stones = [
-        //             [],
-        //             [],
-        //             []
-        //         ];
-        //     }
-        //     addStones() {
-        //     }
-        // }
-        //
-        // class ResetStats {
-        //
-        // }
-
-        //current round - 6 is max
-        //current turn - 2 players so alternate
-        //round end - when all 4 ships are docked, current round ends
-        //points from market cards, pyramid, temple, burial chamber, and obelisks
-
-    </script>
-
+    <title>Imhotep Hackathon</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <div class="header">
+        <div class="game-title">Imhotep</div>
+    </div>
+    <div class="body-container">
+        <div class="stats-container">
+            <div class="player-one-container">
+                <div class="player-one-title">
+                    <h1>Player 1</h1>
+                </div>
+                <div class="stats-display">
+                    <p>Score: 10</p>
+                    <p>Cards: 1</p>
+                    <p>Blocks: 3</p>
+                </div>
+            </div>
+            <div class="round-container">
+                Round 1
+            </div>
+            <div class="player-two-container">
+                <h1>Player 2</h1>
+            </div>
+        </div>
+        <div class="gameboard-left-container">
+            <div class="boat-container">
+                <div class="boat" id="boat1">
+                    <div class="boat-square" id="square1"></div>
+                    <div class="boat-square" id="square2"></div>
+                    <div class="boat-square" id="square3"></div>
+                    <div class="boat-square" id="square4"></div>
+                </div>
+                <div class="boat" id="boat2">
+                    <div class="boat-square" id="square1"></div>
+                    <div class="boat-square" id="square2"></div>
+                    <div class="boat-square" id="square3"></div>
+                    <div class="boat-square" id="square4"></div>
+                </div>
+                <div class="boat" id="boat3">
+                    <div class="boat-square" id="square1"></div>
+                    <div class="boat-square" id="square2"></div>
+                    <div class="boat-square" id="square3"></div>
+                </div>
+                <div class="boat" id="boat4">
+                    <div class="boat-square" id="square1"></div>
+                    <div class="boat-square" id="square2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="gameboard-right-container">
+            <div class="market-container">
+                <div class="market-card-container">
+                    <div class="card" id="card1">card 1</div>
+                    <div class="card" id="card1">card 2</div>
+                    <div class="card" id="card3">card 3</div>
+                    <div class="card" id="card4">card 4</div>
+                </div>
+            </div>
+            <div class="pyramid-container">
+                <div class="pyramid-block-container">
+                    <div class="pyramid-block" id="pyramidBlock1"></div>
+                    <div class="pyramid-block" id="pyramidBlock2"></div>
+                    <div class="pyramid-block" id="pyramidBlock3"></div>
+                    <div class="pyramid-block" id="pyramidBlock4"></div>
+                    <div class="pyramid-block" id="pyramidBlock5"></div>
+                    <div class="pyramid-block" id="pyramidBlock6"></div>
+                    <div class="pyramid-block" id="pyramidBlock7"></div>
+                    <div class="pyramid-block" id="pyramidBlock8"></div>
+                    <div class="pyramid-block" id="pyramidBlock9"></div>
+                    <div class="pyramid-level2-container">
+                        <div class="pyramid-block-2nd" id="pyramidBlock10"></div>
+                        <div class="pyramid-block-2nd" id="pyramidBlock11"></div>
+                        <div class="pyramid-block-2nd" id="pyramidBlock12"></div>
+                        <div class="pyramid-block-2nd" id="pyramidBlock13"></div>
+                    </div>
+                    
+                    <div class="pyramid-block-3rd" id="pyramidBlock14"></div>
+                </div>
+            </div>
+            <div class="temple-container">
+                <div class="temple-block-container">
+                    <div class="temple-block" id="templeBlock1"></div>
+                    <div class="temple-block" id="templeBlock2"></div>
+                    <div class="temple-block" id="templeBlock3"></div>
+                    <div class="temple-block" id="templeBlock4"></div>
+                    <div class="temple-block" id="templeBlock5"></div>
+                </div>
+            </div>
+            <div class="burial-chamber">
+                <div class="burial-chamber-container">
+                    <div class="burial-chamber-block-container">
+                        <div class="burial-block" id="burialBlock1"></div>
+                        <div class="burial-block" id="burialBlock2"></div>
+                        <div class="burial-block" id="burialBlock3"></div>
+                        <div class="burial-block" id="burialBlock4"></div>
+                        <div class="burial-block" id="burialBlock5"></div>
+                        <div class="burial-block" id="burialBlock6"></div>
+                        <div class="burial-block" id="burialBlock7"></div>
+                        <div class="burial-block" id="burialBlock8"></div>
+                        <div class="burial-block" id="burialBlock9"></div>
+                        <div class="burial-block" id="burialBlock10"></div>
+                        <div class="burial-block" id="burialBlock11"></div>
+                        <div class="burial-block" id="burialBlock12"></div>
+                        <div class="burial-block" id="burialBlock13"></div>
+                        <div class="burial-block" id="burialBlock14"></div>
+                        <div class="burial-block" id="burialBlock15"></div>
+                        <div class="burial-block" id="burialBlock16"></div>
+                        <div class="burial-block" id="burialBlock17"></div>
+                        <div class="burial-block" id="burialBlock18"></div>
+                        <div class="burial-block" id="burialBlock19"></div>
+                        <div class="burial-block" id="burialBlock20"></div>
+                        <div class="burial-block" id="burialBlock21"></div>
+                        <div class="burial-block" id="burialBlock22"></div>
+                        <div class="burial-block" id="burialBlock23"></div>
+                        <div class="burial-block" id="burialBlock24"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="obelisks">
+                <div class="obelisks-container">
+                    <div class="obelisks-column">
+                        <div id="obelisk1"></div>
+                    </div>
+                    <div class="obelisks-column">
+                        <div id="obelisk2"></div>
+                    </div>
+                    <div class="obelisks-column">
+                        <div id="obelisk3"></div>
+                    </div>
+                    <div class="obelisks-column">
+                        <div id="obelisk4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
-
 </html>
