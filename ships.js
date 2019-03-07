@@ -1,6 +1,6 @@
 
 class Harbor{
-    constructor(){
+    constructor(shipFinder){
         this.allShips = [];
         this.requirements = {
             1: 1,
@@ -8,33 +8,35 @@ class Harbor{
             3: 2,
             4: 3
         };
+        this.sailingShip = shipFinder;
         this.addShip();
     }
     addShip(){
         for(var i = 0; i < 4; i++){
             var randomCapacity = Math.floor(Math.random()*4 + 1);
-            var newShip = new Ship(randomCapacity, this.requirements[randomCapacity]);//randomize first, object value for second
+            var newShip = new Ship(randomCapacity, this.requirements[randomCapacity], this.sailingShip);//randomize first, object value for second
             this.allShips.push(newShip);//record in array; useful when sending to destination later
-            this.render(i);
+            this.render(this.allShips[i].ship);
+            var sailButton = $('<button>').addClass('sail').text('Sail').on('click', newShip.handleBtnClick);
+            this.render(sailButton);
         }
     }
-    render(position){
-        $('.harbor').append(this.allShips[position].ship);
+    render(object){
+        $('.harbor').append(object);
     }
 }
 
 class Ship{
-    constructor(maxStones, sailRequirement){
+    constructor(maxStones, sailRequirement, sailCallBack){
         this.maxStones = maxStones;//how many divs to make inside
         this.currentStones = [];//array for stone colors; when appending onto ship or destination go length-1 -> 0 due to how html flow
         this.sailRequirement = sailRequirement;
+        this.sailCallBack = sailCallBack;
 
         this.addStone = this.addStone.bind(this);
-        this.sail = this.sail.bind(this);
+        this.handleBtnClick = this.handleBtnClick.bind(this);
 
         this.ship = $('<div>').css('background-color', 'burlywood').addClass('ship').on('click', this.addStone);//class to do css later
-
-        $('button.sail').on('click', this.sail)//may have to use this
     }
     addStone(color){//change 'black' to color later
         if(this.currentStones.length < this.maxStones){//if ship is not full, add a stone
@@ -53,11 +55,13 @@ class Ship{
             playerStone.insertBefore(this.ship.find('>:first-child'));//puts new stones before old ones - counter flow of html
         }
     }
+    handleBtnClick(){
+        this.sailCallBack(this);
+        this.sail();
+    }
     sail(){
         if(this.currentStones.length >= this.sailRequirement){//set requirement
-        //code will depend on how we want to move ships
-        //mockup of move div then ship method div.shipyard > div.ship
-            return `Full speed ahead!`;//console test                
+            return `Full speed ahead!`;              
         }else{
             return `Ship does not meet requirement yet!`;
         }

@@ -36,8 +36,6 @@ body {
     
 }
 
-
-
 .round-container {
     background-color: red;
     border: 1px solid black;
@@ -175,7 +173,6 @@ body {
     width: 50%;
 }
 
-
 .pyramid-block-3rd {
     background-color: lavender;
     border: 1px solid black;
@@ -273,6 +270,8 @@ body {
     position: absolute;
     top: 15px;
     left: 20px;
+    text-align: center;
+    font-size: 20px;
 }
 
 #obelisk2 {
@@ -283,6 +282,8 @@ body {
     position: absolute;
     left: 20px;
     top: 40px;
+    text-align: center;
+    font-size: 20px;
 }
 
 #obelisk3 {

@@ -1,6 +1,6 @@
 # c219_hackathon1
 
-# complete the project assigned to your group.  All projects MUST be in OOP
+# complete the project assigned to your group. All projects MUST be in OOP.
 
 ## Teams
 
