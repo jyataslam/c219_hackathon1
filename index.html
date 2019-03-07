@@ -8,41 +8,6 @@
     <script src="burial_chamber.js"></script>
     <script src="game.js"></script>
     <script src="main.js"></script>
-    <style>
-        .harbor{
-            display: inline-block;
-        }
-
-        .ship{
-            height: 100px;
-            width: 400px;
-            border: 1px black solid;
-        }
-
-        .stone{
-            height: 80px;
-            width: 80px;
-            float: right;
-            background-color: rgb(0, 0, 0);
-            border: 1px white groove;
-        }
-
-        .dock{
-            height: 200px;
-            width: 500px;
-            border: 1px brown dotted;
-        }
-
-        .burial_chamber{
-            height: 90%;
-            width: 90%;
-            background-color: goldenrod;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            justify-content: left;
-        }
-    </style>
 </head>
 <body>
     <div class="header">
@@ -51,28 +16,48 @@
     <div class="body-container">
         <div class="stats-container">
             <div class="player-one-container">
-                <div class="player-one-title">
-                    <h1>Player 1</h1>
-                </div>
-                <div class="stats-display">
-                    <p>Score: 10</p>
-                    <p>Cards: 1</p>
-                    <p>Blocks: 3</p>
-                </div>
+                    <div class="player-title">
+                        Player 1
+                    </div>
+                    <div class="player-stats">
+                        <p class="player-one-score">Score: 0</p>
+                        <p class="player-one-cards">Cards: 0</p>
+                        <p class="player-one-blocks">Blocks: 0</p>
+                    </div>
+                    <button class="recharge-button">Recharge Blocks</button>
             </div>
             <div class="round-container">
                 Round 1
             </div>
             <div class="player-two-container">
-                <h1>Player 2</h1>
+                <div class="player-title">
+                    Player 2
+                </div>
+                <div class="player-stats">
+                    <p class="player-two-score">Score: 0</p>
+                    <p class="player-two-cards">Cards: 0</p>
+                    <p class="player-two-blocks">Blocks: 0</p>
+                </div>
+                <button class="recharge-button">Recharge Blocks</button>
             </div>
         </div>
         <div class="gameboard-left-container">
             <div class="harbor">
             </div>
         </div>
+        <div class="harbor-container">
+            <div class="market-harbor"></div>
+            <div class="pyramid-harbor"></div>
+            <div class="temple-harbor"></div>
+            <div class="burialchamber-harbor"></div>
+            <div class="obelisks-harbor"></div>
+        </div>
         <div class="gameboard-right-container">
             <div class="market-container">
+                <div class="market-titlearea">
+                        <div class="market-name">Market</div>
+                        <button class="market-dock-button">Dock in Harbor</button>
+                    </div>
                 <div class="market-card-container">
                     <div class="card" id="card1">card 1</div>
                     <div class="card" id="card1">card 2</div>
@@ -80,28 +65,38 @@
                     <div class="card" id="card4">card 4</div>
                 </div>
             </div>
-            <div class="pyramid-container">
-                <div class="pyramid-block-container">
-                    <div class="pyramid-block" id="pyramidBlock1"></div>
-                    <div class="pyramid-block" id="pyramidBlock2"></div>
-                    <div class="pyramid-block" id="pyramidBlock3"></div>
-                    <div class="pyramid-block" id="pyramidBlock4"></div>
-                    <div class="pyramid-block" id="pyramidBlock5"></div>
-                    <div class="pyramid-block" id="pyramidBlock6"></div>
-                    <div class="pyramid-block" id="pyramidBlock7"></div>
-                    <div class="pyramid-block" id="pyramidBlock8"></div>
-                    <div class="pyramid-block" id="pyramidBlock9"></div>
-                    <div class="pyramid-level2-container">
-                        <div class="pyramid-block-2nd" id="pyramidBlock10"></div>
-                        <div class="pyramid-block-2nd" id="pyramidBlock11"></div>
-                        <div class="pyramid-block-2nd" id="pyramidBlock12"></div>
-                        <div class="pyramid-block-2nd" id="pyramidBlock13"></div>
+            <div class="pyramid">
+                <div class="pyramid-titlearea">
+                    <div class="pyramid-name">Pyramid</div>
+                    <button class="pyramid-dock-button">Dock in Harbor</button>
+                </div>
+                <div class="pyramid-container">
+                    <div class="pyramid-block-container">
+                        <div class="pyramid-block" id="pyramidBlock1"></div>
+                        <div class="pyramid-block" id="pyramidBlock2"></div>
+                        <div class="pyramid-block" id="pyramidBlock3"></div>
+                        <div class="pyramid-block" id="pyramidBlock4"></div>
+                        <div class="pyramid-block" id="pyramidBlock5"></div>
+                        <div class="pyramid-block" id="pyramidBlock6"></div>
+                        <div class="pyramid-block" id="pyramidBlock7"></div>
+                        <div class="pyramid-block" id="pyramidBlock8"></div>
+                        <div class="pyramid-block" id="pyramidBlock9"></div>
+                        <div class="pyramid-level2-container">
+                            <div class="pyramid-block-2nd" id="pyramidBlock10"></div>
+                            <div class="pyramid-block-2nd" id="pyramidBlock11"></div>
+                            <div class="pyramid-block-2nd" id="pyramidBlock12"></div>
+                            <div class="pyramid-block-2nd" id="pyramidBlock13"></div>
+                        </div>
+                        
+                        <div class="pyramid-block-3rd" id="pyramidBlock14"></div>
                     </div>
-                    
-                    <div class="pyramid-block-3rd" id="pyramidBlock14"></div>
                 </div>
             </div>
             <div class="temple-container">
+                <div class="temple-titlearea">
+                    <div class="temple-name">Temple</div>
+                    <button class="temple-dock-button">Dock in Harbor</button>
+                </div>
                 <div class="temple-block-container">
                     <div class="temple-block" id="templeBlock1"></div>
                     <div class="temple-block" id="templeBlock2"></div>
@@ -110,13 +105,20 @@
                 </div>
             </div>
             <div class="burial-chamber">
+                <div class="burial-chamber-titlearea">
+                    <div class="burial-chamber-name">Burial Chamber</div>
+                    <button class="burial-dock-button">Dock in Harbor</button>
+                </div>
                 <div class="burial-chamber-container">
                     <div class="burial_chamber">
                     </div>
                 </div>
             </div>
             <div class="obelisks">
-                <button class="obelisk-button">Dock</button>
+                <div class="obelisks-titlearea">
+                    <div class="obelisks-name">Obelisks</div>
+                    <button class="obelisks-dock-button">Dock in Harbor</button>
+                </div>  
                 <div class="obelisks-container">
                     
                     <div class="obelisks-column">
