@@ -2,7 +2,6 @@
 class Harbor{
     constructor(shipFinder){
         this.allShips = [];
-        this.ship = null;
         this.requirements = {
             1: 1,
             2: 1,
@@ -62,9 +61,7 @@ class Ship{
     }
     sail(){
         if(this.currentStones.length >= this.sailRequirement){//set requirement
-        //code will depend on how we want to move ships
-        //mockup of move div then ship method div.shipyard > div.ship
-            return `Full speed ahead!`;//console test                
+            return `Full speed ahead!`;              
         }else{
             return `Ship does not meet requirement yet!`;
         }
