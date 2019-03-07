@@ -15,20 +15,28 @@ class BurialChamber{
         this.stoneColor = null;
         
         this.handleDock = this.handleDock.bind(this);
-        this.addDock();
+        $('.burial-dock-button').on('click', this.handleDock);
+        // this.addDock();
+        this.clickDock();
     }
     handleDock(){
         this.dockClicked(this);
         this.dockShip();
     }
-    addDock(){
-        var dockButton = $('<button>').addClass('docking').text('Dock Ship').on('click', this.handleDock);
-        this.dock = $('<div>').addClass('dock');
-        this.dock.append(dockButton);
-        this.render(this.dock);
+
+    clickDock(){
+        this.dock = $('.burialchamber-harbor');
+        console.log('clicked')
     }
+
+    // addDock(){
+    // var dockButton = $('<button>').addClass('docking').text('Dock Ship').on('click', this.handleDock);
+    // this.dock = $('<div>').addClass('dock');
+    // this.dock.append(dockButton);
+    // this.render(this.dock);
+    // }
     render(object){
-        $('.harbor').append(object)//change to your area        
+        $('.burialchamber-harbor').append(object)//change to your area        
     }
     dockShip(){
         debugger;
