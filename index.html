@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title></title>
+
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script type="text/javascript">
+
+        // class GameStats {
+        //     constructor() {
+        //         this.shipDockCount = 0; //how many ships have been docked?
+        //         this.currentRoundEnd = false; //have all 4 ships been docked?
+        //         this.gameRound = 1; //1 through 6
+        //     }
+        //     increaseShipDockCount() {
+        //         //if sail ship has been clicked
+        //         this.shipDockCount++;
+        //     }
+        //     checkCurrentRoundEnd() {
+        //         //if 4 ships have been docked
+        //         this.currentRoundEnd = true;
+        //     }
+        //     increaseGameRound() {
+        //         if (this.currentRoundEnd = true && this.gameRound < 6) {
+        //             this.gameRound++;
+        //         }
+        //     }
+        // }
+        //
+        // var game = new GameStats();
+        //
+        // class PlayerStats {
+        //     constructor(name, color, turn) {
+        //         this.playerName = name;
+        //         this.playerColor = color; //black or white
+        //         this.lastTurn = null;
+        //         this.currentTurn = turn; //2 players so alternate
+        //         this.gameRound = 1;
+        //         this.templePoints = 0;
+        //         this.pyramidPoints = 0;
+        //         this.burialPoints = 0;
+        //         this.obelisksPoints = 0;
+        //         this.currentPoints = 0;
+        //         this.totalPoints = 0;
+        //     }
+        //     displayPlayerName() {
+        //         $("").text(this.playerName);
+        //     }
+        //     checkCurrentTurn() {
+        //         //after each round, lastTurn = currentTurn, currentTurn = opposite of lastTurn
+        //         if (this.gameRound > 1) {
+        //             this.lastTurn = this.currentTurn;
+        //             this.currentTurn != this.currentTurn; //...?
+        //         }
+        //     }
+        //     getTemplePoints() {
+        //
+        //     }
+        //     getCurrentPoints() { //if round 1 - 5, temple and pyramid points only
+        //
+        //     }
+        //     getTotalPoints() { //after round 6, temple, pyramid, burial, obelisks, statue card points
+        //
+        //     }
+        // }
+        //
+        // var player1 = new PlayerStats("Amy", "black", true);
+        // var player2 = new PlayerStats("Brandon", "white", false);
+
+        class Temple {
+            constructor(image) {
+                this.stones = [
+                    [], [], [], []
+                ];
+                this.current = 0;
+                this.image = image;
+            }
+            addStones(inputStones) {
+                //b, w, w, b, w, w, b, w, b, b, w
+                for(var i = 0; i < inputStones.length; i++) {
+                    var currentStone = inputStones[i];
+                    this.stones[this.current].push(currentStone);
+                    // currentStone++;
+                    if(currentStone  % 4 === 0) {
+                        this.current = 0;
+                    } else {
+                        this.current++;
+                    }
+                }
+            }
+            countStones() {
+                var blackCount = 0;
+                var whiteCount = 0;
+                for (var i = 0; i < this.stones.length; i++) {
+                    if (this.stones[i] === "black") {
+                        blackCount++;
+                    } else if (this.stones[i] === "white") {
+                        whiteCount++;
+                    }
+                }
+            }
+            displayStones() {
+
+            }
+        }
+
+        // var pyramidStones = [
+        //     {
+        //         points: 2,
+        //         selector: '#pyramidstone1'
+        //     },
+        //     {
+        //         points: 1,
+        //         selector: '#pyramidstone2'
+        //     },
+        //     {
+        //         points: 3,
+        //         selector: '#pyramidstone3'
+        //     }
+        // ];
+        //
+        // class BurialChamber {
+        //     constructor() {
+        //         this.stones = [
+        //             [],
+        //             [],
+        //             []
+        //         ];
+        //     }
+        //     addStones() {
+        //     }
+        // }
+        //
+        // class ResetStats {
+        //
+        // }
+
+        //current round - 6 is max
+        //current turn - 2 players so alternate
+        //round end - when all 4 ships are docked, current round ends
+        //points from market cards, pyramid, temple, burial chamber, and obelisks
+
+    </script>
+
+</head>
+
+<body>
+</body>
+
+</html>
