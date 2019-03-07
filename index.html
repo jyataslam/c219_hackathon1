@@ -3,10 +3,46 @@
 <head>
     <title>Imhotep Hackathon</title>
     <link rel="stylesheet" href="style.css">
-    <script src="ships.js"></script>
-    <script src="obelisks.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="temple.js"></script>
+    <script src="ships.js"></script>
+    <script src="burial_chamber.js"></script>
+    <script src="game.js"></script>
+    <script src="main.js"></script>
+    <style>
+        .harbor{
+            display: inline-block;
+        }
+
+        .ship{
+            height: 100px;
+            width: 400px;
+            border: 1px black solid;
+        }
+
+        .stone{
+            height: 80px;
+            width: 80px;
+            float: right;
+            background-color: rgb(0, 0, 0);
+            border: 1px white groove;
+        }
+
+        .dock{
+            height: 200px;
+            width: 500px;
+            border: 1px brown dotted;
+        }
+
+        .burial_chamber{
+            height: 90%;
+            width: 90%;
+            background-color: goldenrod;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: left;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
@@ -32,28 +68,7 @@
             </div>
         </div>
         <div class="gameboard-left-container">
-            <div class="boat-container">
-                <div class="boat" id="boat1">
-                    <div class="boat-square" id="square1"></div>
-                    <div class="boat-square" id="square2"></div>
-                    <div class="boat-square" id="square3"></div>
-                    <div class="boat-square" id="square4"></div>
-                </div>
-                <div class="boat" id="boat2">
-                    <div class="boat-square" id="square1"></div>
-                    <div class="boat-square" id="square2"></div>
-                    <div class="boat-square" id="square3"></div>
-                    <div class="boat-square" id="square4"></div>
-                </div>
-                <div class="boat" id="boat3">
-                    <div class="boat-square" id="square1"></div>
-                    <div class="boat-square" id="square2"></div>
-                    <div class="boat-square" id="square3"></div>
-                </div>
-                <div class="boat" id="boat4">
-                    <div class="boat-square" id="square1"></div>
-                    <div class="boat-square" id="square2"></div>
-                </div>
+            <div class="harbor">
             </div>
         </div>
         <div class="gameboard-right-container">
@@ -96,31 +111,7 @@
             </div>
             <div class="burial-chamber">
                 <div class="burial-chamber-container">
-                    <div class="burial-chamber-block-container">
-                        <div class="burial-block" id="burialBlock1"></div>
-                        <div class="burial-block" id="burialBlock2"></div>
-                        <div class="burial-block" id="burialBlock3"></div>
-                        <div class="burial-block" id="burialBlock4"></div>
-                        <div class="burial-block" id="burialBlock5"></div>
-                        <div class="burial-block" id="burialBlock6"></div>
-                        <div class="burial-block" id="burialBlock7"></div>
-                        <div class="burial-block" id="burialBlock8"></div>
-                        <div class="burial-block" id="burialBlock9"></div>
-                        <div class="burial-block" id="burialBlock10"></div>
-                        <div class="burial-block" id="burialBlock11"></div>
-                        <div class="burial-block" id="burialBlock12"></div>
-                        <div class="burial-block" id="burialBlock13"></div>
-                        <div class="burial-block" id="burialBlock14"></div>
-                        <div class="burial-block" id="burialBlock15"></div>
-                        <div class="burial-block" id="burialBlock16"></div>
-                        <div class="burial-block" id="burialBlock17"></div>
-                        <div class="burial-block" id="burialBlock18"></div>
-                        <div class="burial-block" id="burialBlock19"></div>
-                        <div class="burial-block" id="burialBlock20"></div>
-                        <div class="burial-block" id="burialBlock21"></div>
-                        <div class="burial-block" id="burialBlock22"></div>
-                        <div class="burial-block" id="burialBlock23"></div>
-                        <div class="burial-block" id="burialBlock24"></div>
+                    <div class="burial_chamber">
                     </div>
                 </div>
             </div>
