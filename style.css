@@ -140,7 +140,6 @@ body {
 .burial_chamber{
     height: 90%;
     width: 90%;
-    background-color: goldenrod;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -269,6 +268,13 @@ body {
 
 .market-card-container {
     background-color: lightcyan;
+    /* background-image: url(game_pieces/market.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; */
+    /* max-width: 100%;
+    max-height: auto;
+    width: 100px;
+    height: 100px; */
     float: right;
     height: 100%;
     width: 65%;
@@ -277,6 +283,15 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    position: relative;
+}
+
+.market-card-container > img {
+    max-width: 100%;
+    max-height: auto;
+    width: 630px;
+    height: 150px;
+    position: absolute;
 }
 
 .card {
@@ -284,6 +299,7 @@ body {
     border: 1px solid black;
     height: 40%;
     width: 30%;
+    /* z-index: 1; */
 }
 
 .pyramid {
@@ -318,6 +334,9 @@ body {
 
 .pyramid-container {
     background-color: orange;
+    background-image: url(game_pieces/pyramids.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
     height: 100%;
     width: 65%;
     float: right;
@@ -327,7 +346,7 @@ body {
 }
 
 .pyramid-block-container {
-    background-color: lightyellow;
+    background-color: transparent;
     height: 100%;
     width: 35%;
     text-align: center;
@@ -339,16 +358,16 @@ body {
 }
 
 .pyramid-block {
-    background-color: white;
-    border: 1px solid black;
+    background-color: transparent;
+    /* border: 1px solid black; */
     box-sizing: border-box;
     height: 33.1%;
     width: 30%;
 }
 
 .pyramid-level2-container {
-    background-color: purple;
-    border: 1px solid black;
+    background-color: transparent;
+    /* border: 1px solid black; */
     position: absolute;
     height: 70%;
     width: 55%;
@@ -358,16 +377,16 @@ body {
 }
 
 .pyramid-block-2nd {
-    background-color: white;
-    border: 1px solid black;
+    background-color: transparent;
+    /* border: 1px solid black; */
     box-sizing: border-box;
     height: 50%;
     width: 50%;
 }
 
 .pyramid-block-3rd {
-    background-color: white;
-    border: 1px solid black;
+    background-color: transparent;
+    /* border: 1px solid black; */
     box-sizing: border-box;
     height: 33%;
     width: 30%;
@@ -405,7 +424,10 @@ body {
 }
 
 .temple-block-container {
-    background-color: blue;
+    background-color: rgb(245, 236, 116);
+    background-image: url(game_pieces/temple.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
     height: 100%;
     width: 65%;
     float: right;
@@ -452,7 +474,10 @@ body {
 }
 
 .burial-chamber-container {
-    background-color: lightpink;
+    background-image: url('game_pieces/burial_chamber.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* background-position: center; */
     height: 100%;
     width: 65%;
     display: flex;
@@ -510,6 +535,9 @@ body {
 
 .obelisks-container {
     background-color: antiquewhite;
+    background-image: url(game_pieces/obelisks.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
     height: 100%;
     width: 65%;
     float: right;
@@ -517,7 +545,7 @@ body {
 }
 
 .obelisks-column {
-    background-color: gold;
+    /* background-color: gold; */
     box-sizing: border-box;
     height: 100%;
     width: 25%;
