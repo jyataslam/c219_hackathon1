@@ -36,7 +36,6 @@ class Game{
         // this.player2 = new Players("white", 3, this.playerHandler);
         // this.playersArray.push(this.player2);
         for(var i = 0; i < users; i++){
-            debugger;
             var player = new Players(this.playersColor[i], i+2, this.playerHandler);
             this.playersArray.push(player);
             var recharge = $('#'+i);
@@ -56,7 +55,6 @@ class Game{
         // this.market = new Market(this.dockHandler);
     }
     playerHandler(player){
-        debugger;
         this.currentPlayer = player;
         console.log(player);
     }

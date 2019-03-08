@@ -39,7 +39,6 @@ class BurialChamber{
         $('.burialchamber-harbor').append(object)//change to your area        
     }
     dockShip(){
-        debugger;
         if(!this.docked){
             if(this.sailingShip && this.dockSelected){
                 this.docked = true;    
