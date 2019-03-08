@@ -18,7 +18,9 @@ class Game{
 
         this.shipHandler = this.shipHandler.bind(this);
         this.dockHandler = this.dockHandler.bind(this);
+
         this.playerHandler = this.playerHandler.bind(this);
+
 
         this.addHarbor();
         this.addArea();

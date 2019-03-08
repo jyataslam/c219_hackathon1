@@ -11,6 +11,10 @@ body {
     text-align: center;
 }
 
+.game-title {
+    font-size: 60px;
+}
+
 .body-container {
     background-color: lightblue;
     height: 92%;
@@ -33,15 +37,40 @@ body {
     height: 90%;
     width: 25%;
     display: flex;
-    
+    flex-direction: column;
+}
+
+.player-title {
+    height: 40%;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.player-stats {
+    height: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.recharge-button {
+    height: 20%;
+    width: 100%;
+    background-color: darkgrey;
+    color: white;
 }
 
 .round-container {
-    background-color: red;
+    background-color: whitesmoke;
     border: 1px solid black;
     height: 90%;
     width: 20%;
     text-align: center;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .player-two-container {
@@ -49,16 +78,16 @@ body {
     border: 1px solid black;
     height: 90%;
     width: 25%;
+    display: flex;
+    flex-direction: column;
 }
 
 .gameboard-left-container {
-    background-color: sandybrown;
+    background-color: blueviolet;
     height: 85%;
-    width: 50%;
-    display: inline-flex;
-    justify-content: space-around;
-    align-items: center;
+    width: 30%;
     box-sizing: border-box;
+    float: left;
 }
 
 .boat-container {
@@ -72,7 +101,66 @@ body {
     align-items: center;
 }
 
-.boat {
+
+
+
+/* START OF JUN'S CSS */
+
+.harbor{
+    display: flex;
+    background-color: pink;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    /* display: inline-flex; */
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.ship{
+    height: 100px;
+    width: 300px;
+    border: 1px black solid;
+}
+
+.stone{
+    height: 40px;
+    width: 40px;
+    float: right;
+    background-color: rgb(0, 0, 0);
+    border: 1px white groove;
+}
+
+/* .dock{
+    height: 200px;
+    width: 500px;
+    border: 1px brown dotted;
+} */
+
+.burial_chamber{
+    height: 90%;
+    width: 90%;
+    background-color: goldenrod;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+/* sail button */
+.sail {
+    height: 5%;
+    width: 10%;
+}
+
+/* END OF JUN'S CSS */
+
+
+
+
+
+
+/* .boat {
     background-color: lavender;
     border: 1px solid black;
     height: 20%;
@@ -87,7 +175,9 @@ body {
     border: 1px solid black;
     height: 50%;
     width: 20%;
-}
+} */
+
+
 
 .gameboard-right-container {
     background-color: orangered;
@@ -99,10 +189,81 @@ body {
     float: right;
 }
 
+.harbor-container {
+    background-color: skyblue;
+    height: 85%;
+    width: 20%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.market-harbor {
+    background-color: blue;
+    border: 1px solid black;
+    height: 20%;
+    width: 100%;
+}
+
+.pyramid-harbor {
+    background-color: blue;
+    border: 1px solid black;
+    height: 20%;
+    width: 100%;
+}
+
+.temple-harbor {
+    background-color: blue;
+    border: 1px solid black;
+    height: 20%;
+    width: 100%;
+}
+
+.burialchamber-harbor {
+    background-color: blue;
+    border: 1px solid black;
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.obelisks-harbor {
+    background-color: blue;
+    border: 1px solid black;
+    height: 20%;
+    width: 100%;
+}
+
 .market-container {
     background-color: lightseagreen;
     border: 1px solid black;
     height: 20%;
+    width: 100%;
+    display: inline-flex;
+}
+
+.market-titlearea {
+    background-color: white;
+    height: 100%;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+}
+
+.market-name {
+    background-color: white;
+    height: 75%;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+}
+
+.market-dock-button {
+    background-color: red;
+    height: 25%;
     width: 100%;
 }
 
@@ -110,8 +271,9 @@ body {
     background-color: lightcyan;
     float: right;
     height: 100%;
-    width: 50%;
+    width: 65%;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
@@ -121,23 +283,53 @@ body {
     background-color: white;
     border: 1px solid black;
     height: 40%;
-    width: 40%;
+    width: 30%;
 }
 
-.pyramid-container {
-    background-color: lightcoral;
+.pyramid {
+    background-color: lightcyan;
     border: 1px solid black;
     height: 20%;
     width: 100%;
+    display: inline-flex;
+}
+
+.pyramid-titlearea {
+    background-color: white;
+    height: 100%;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+}
+
+.pyramid-name {
+    background-color: white;
+    height: 75%;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+}
+
+.pyramid-dock-button {
+    background-color: red;
+    height: 25%;
+    width: 100%;
+}
+
+.pyramid-container {
+    background-color: orange;
+    height: 100%;
+    width: 65%;
+    float: right;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 }
 
 .pyramid-block-container {
     background-color: lightyellow;
     height: 100%;
-    width: 25%;
+    width: 35%;
     text-align: center;
     display: flex;
     flex-wrap: wrap;
@@ -147,7 +339,7 @@ body {
 }
 
 .pyramid-block {
-    background-color: grey;
+    background-color: white;
     border: 1px solid black;
     box-sizing: border-box;
     height: 33.1%;
@@ -174,7 +366,7 @@ body {
 }
 
 .pyramid-block-3rd {
-    background-color: lavender;
+    background-color: white;
     border: 1px solid black;
     box-sizing: border-box;
     height: 33%;
@@ -187,12 +379,35 @@ body {
     border: 1px solid black;
     height: 20%;
     width: 100%;
+    display: inline-flex;
+}
+
+.temple-titlearea {
+    background-color: white;
+    height: 100%;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+}
+
+.temple-name {
+    background-color: white;
+    height: 75%;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+}
+
+.temple-dock-button {
+    background-color: red;
+    height: 25%;
+    width: 100%;
 }
 
 .temple-block-container {
     background-color: blue;
     height: 100%;
-    width: 50%;
+    width: 65%;
     float: right;
     display: flex;
     justify-content: center;
@@ -200,10 +415,10 @@ body {
 }
 
 .temple-block {
-    background-color: grey;
+    background-color: white;
     border: 1px solid black;
-    height: 30%;
-    width: 15%;
+    height: 33%;
+    width: 10%;
 }
 
 .burial-chamber {
@@ -211,12 +426,35 @@ body {
     border: 1px solid black;
     height: 20%;
     width: 100%;
+    display: inline-flex;
+}
+
+.burial-chamber-titlearea {
+    background-color: white;
+    height: 100%;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+}
+
+.burial-chamber-name {
+    background-color: white;
+    height: 75%;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+}
+
+.burial-dock-button {
+    background-color: red;
+    height: 25%;
+    width: 100%;
 }
 
 .burial-chamber-container {
     background-color: lightpink;
     height: 100%;
-    width: 70%;
+    width: 65%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -232,24 +470,48 @@ body {
     align-items: center;
 }
 
-.burial-block {
+/* created dynamically */
+/* .burial-block {
     background-color: gray;
     border: 1px solid black;
     height: 32%;
     width: 12.1%;
-}
+} */
 
 .obelisks {
     background-color: lightslategray;
     border: 1px solid black;
     height: 20%;
     width: 100%;
+    display: inline-flex;
+}
+
+.obelisks-titlearea {
+    background-color: white;
+    height: 100%;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+}
+
+.obelisks-name {
+    background-color: white;
+    height: 75%;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+}
+
+.obelisks-dock-button {
+    background-color: red;
+    height: 25%;
+    width: 100%;
 }
 
 .obelisks-container {
     background-color: antiquewhite;
     height: 100%;
-    width: 50%;
+    width: 65%;
     float: right;
     display: flex;
 }
@@ -263,10 +525,10 @@ body {
 }
 
 #obelisk1 {
-    background-color: gray;
+    background-color: white;
     border: 1px solid black;
     height: 30%;
-    width: 50%;
+    width: 40%;
     position: absolute;
     top: 15px;
     left: 20px;
@@ -275,10 +537,10 @@ body {
 }
 
 #obelisk2 {
-    background-color: gray;
+    background-color: white;
     border: 1px solid black;
     height: 30%;
-    width: 50%;
+    width: 40%;
     position: absolute;
     left: 20px;
     top: 40px;
@@ -287,21 +549,25 @@ body {
 }
 
 #obelisk3 {
-    background-color: gray;
+    background-color: white;
     border: 1px solid black;
     height: 30%;
-    width: 50%;
+    width: 40%;
     position: absolute;
     top: 65px;
     left: 20px;
 }
 
 #obelisk4 {
-    background-color: gray;
+    background-color: white;
     border: 1px solid black;
     height: 30%;
-    width: 50%;
+    width: 40%;
     position: absolute;
     top: 85px;
     left: 20px;
+}
+
+.burialchamber-harbor > .ship {
+    
 }
