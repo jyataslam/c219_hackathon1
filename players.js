@@ -1,75 +1,79 @@
-$(document).ready(startApp);
-function startApp(){
-    players = new Players();
-   //addEventListeners();
+// $(document).ready(startApp);
+// function startApp() {
+//     // players = new Players();
+    //addEventListeners();
 //debugger;
-}
+// }
 // function addEventListeners(){
 //     $('.btn').click(buttonClick)
 // }
 //
+// }
+
 
 class Players {
-    constructor() {
-        this.players = [{
-            playerCubes: 3
-        }, {
-            playerCubes: 2
-        }];
-        this.color = ['brown', 'silver', 'white', 'black'];
+    constructor(color, startingCube, playerHandler) {
+        this.playerHandler = playerHandler;
+        this.color = color;
+        this.startingCube = startingCube;
         this.block = [];
         this.maxCubes = 5;
         this.cards = null;
         this.placeCubes = this.placeCubes
         //this.rechargeCubes = rechargeCubes();
         this.currentNumber = 0;
-        this.playerTurn = 1;
+        // this.playerTurn = 1;
         //var findPlayerTurns = [0, 1, 2, 3];
+        this.rechargeCubes = this.rechargeCubes.bind(this);
+        this.addRechargeButton();
+        // this.addPlayersToArray();
 
     }
 
-    debugger;
+
+    // addPlayersToArray () {
+    //     this.players.push(player1);
+    // }
+
     addRechargeButton(){
-        var createButton =
+        var rechargeButton = $('<button>').addClass('player-one-container').text('Recharge').on('click', this.rechargeCubes);
+        $('.player-one-container').append(rechargeButton);
     }
     rechargeCubes() {
         // $('.recharge').click(buttonClick);
-        if (this.players[0].playerCubes <= 2) {
-            this.players[0].playerCubes += 3;
+        if (this.startingCube <= 2) {
+            this.startingCube += 3;
         } else {
-            this.players[0].playerCubes = 5;
+            this.startingCube = 5;
         }
-        console.log(this.players[0].playerCubes);
+        console.log(this.startingCube);
+        return;
     }
 
-    //for(findPlayerTurns = 0; i < 4; i++);
-    //   //   totalTurns = totalTurns + findPlayerTurns[i];
     //
-    //  findPlayerTurns(currentTurn) {
-    //      //         switch( )
-    //      //
-    //      //         if(playerTurn === 1){
-    //      //             playerOne turns
-    //      //         }
-    //      //             //person plays the game
-    //      //         }
-    //      //         if(playerTwo === 2){
-    //      //             //person two goes next
-    //      //         }
-    //      //         if(playerThree === 3){
-    //      //             //person three goes next
-    //      //         }
-    //      //         if(playerFour === 4){
-    //      //             //person four goes next
-    //      //         }
-    //      //         if(playerOne > 4){
-    //      //             //reloop from the beginning
-    //      //             //playerOne = 1
-    //      //
-    //      //
-    //      //     }
-    //      // }
-    //  }
+    // currentCubes() {
+    //         //when player chooses ship, decrease by 1. Counter decreases by 1.
+    //         if(//any of the ships are clicked, cube appears on ship)
+    //             this.players[].playerCubes -= 1;
+    //
+    //         if(ship is full/maxed out);
+    //             //cannot be loaded. player cubes stay the same.
+    //
+    //
+    //     }
+    //
+    // playerTurn () {
+    //     var numPlayers = null;
+    //    var currentPlayer = currentPlayer[0];
+    //     (currentPlayer + 1) % numPlayers
+    //         .playerinfo = this.players;
+    // .
+    //     player = 0;
+    //     toggle(this.players) = this.players
+    //
+    // }
+    // }
+    //
 
 ////////////////////PYRAMIDS
 
