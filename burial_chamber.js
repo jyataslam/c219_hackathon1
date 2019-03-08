@@ -26,7 +26,7 @@ class BurialChamber{
 
     clickDock(){
         this.dock = $('.burialchamber-harbor');
-        console.log('clicked')
+        // console.log('clicked')
     }
 
     // addDock(){
