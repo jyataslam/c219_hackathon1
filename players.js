@@ -13,31 +13,39 @@
 
 class Players {
     constructor(color, startingCube, playerHandler) {
-        this.playerHandler = playerHandler;
+        this.playerHandler2 = playerHandler;
         this.color = color;
         this.startingCube = startingCube;
         this.block = [];
         this.maxCubes = 5;
         this.cards = null;
         this.placeCubes = this.placeCubes
+        this.rechargeButton = null;
         //this.rechargeCubes = rechargeCubes();
         this.currentNumber = 0;
         // this.playerTurn = 1;
         //var findPlayerTurns = [0, 1, 2, 3];
+        this.playerClick = this.playerClick.bind(this);
         this.rechargeCubes = this.rechargeCubes.bind(this);
         this.addRechargeButton();
         // this.addPlayersToArray();
-
+        // $('.recharge-button).on('click', this.playerClick);
     }
 
 
+    playerClick(){
+        debugger;
+        this.playerHandler2(this);
+        // this.rechargeCubes();
+
+    }
     // addPlayersToArray () {
     //     this.players.push(player1);
     // }
 
     addRechargeButton(){
-        var rechargeButton = $('<button>').addClass('player-one-container').text('Recharge').on('click', this.rechargeCubes);
-        $('.player-one-container').append(rechargeButton);
+
+      console.log('clicked')
     }
     rechargeCubes() {
         // $('.recharge').click(buttonClick);

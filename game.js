@@ -12,28 +12,37 @@ class Game{
         this.market = null;
         this.currentRound = 1;
         this.currentPlayer = null;
-        this.player1 = null;
-        this.player2 = null;
-        this.playersArray = [];
 
+        this.playersArray = [];
+        this.playersColor = ['white', 'black', 'gray', 'brown'];
+
+        this.playerHandler = this.playerHandler.bind(this);
         this.shipHandler = this.shipHandler.bind(this);
         this.dockHandler = this.dockHandler.bind(this);
 
-        this.playerHandler = this.playerHandler.bind(this);
+
 
 
         this.addHarbor();
         this.addArea();
-        this.createPlayers();
+        this.createPlayers(2);
 
 
     }
 
-    createPlayers() {
-        this.player1 = new Players("black", 2, this.playerHandler);
-        this.playersArray.push(this.player1);
-        this.player2 = new Players("white", 3, this.playerHandler);
-        this.playersArray.push(this.player2);
+    createPlayers(users) {
+        // this.player1 = new Players(c);
+        // this.playersArray.push(this.player1);
+        // this.player2 = new Players("white", 3, this.playerHandler);
+        // this.playersArray.push(this.player2);
+        for(var i = 0; i < users; i++){
+            debugger;
+            var player = new Players(this.playersColor[i], i+2, this.playerHandler);
+            this.playersArray.push(player);
+            var recharge = $('#'+i);
+            recharge.on('click', player.playerClick);
+        }
+
     }
 
     addHarbor(){
@@ -47,6 +56,7 @@ class Game{
         // this.market = new Market(this.dockHandler);
     }
     playerHandler(player){
+        debugger;
         this.currentPlayer = player;
         console.log(player);
     }
