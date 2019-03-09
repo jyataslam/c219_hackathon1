@@ -1,15 +1,3 @@
-// $(document).ready(startApp);
-// function startApp() {
-//     // players = new Players();
-    //addEventListeners();
-//debugger;
-// }
-// function addEventListeners(){
-//     $('.btn').click(buttonClick)
-// }
-//
-// }
-
 
 class Players {
     constructor(color, startingCube, playerHandler) {
@@ -34,7 +22,6 @@ class Players {
 
 
     playerClick(){
-        debugger;
         this.playerHandler2(this);
         // this.rechargeCubes();
 
@@ -45,7 +32,7 @@ class Players {
 
     addRechargeButton(){
 
-      console.log('clicked')
+    console.log('clicked')
     }
     rechargeCubes() {
         // $('.recharge').click(buttonClick);

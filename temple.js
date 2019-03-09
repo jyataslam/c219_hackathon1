@@ -1,10 +1,5 @@
-$(document).ready(initializeApp);
-
-function initializeApp() {
-}
 
 class Temple {
-    debugger;
     constructor(image) {
         this.stones = [
             [], [], [], []
