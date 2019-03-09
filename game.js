@@ -102,13 +102,13 @@ class Game{
             }
         }
         if(currentWinner.length === 1){
-            console.log(`${currentWinner[0].playerName} wins!`);
+            alert(`${currentWinner[0].playerName} wins!`);
         }else{
             var tiedWinners = 'Tie between:';
             for(var i = 0; i < currentWinner.length; i++){
                 tiedWinners = tiedWinners + ' ' + currentWinner[i].playerName;
             }
-            console.log(tiedWinners);
+            alert(tiedWinners);
         }
     }
 
