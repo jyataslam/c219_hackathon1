@@ -85,6 +85,8 @@ class Game{
                 this.burial_chamber.calcPoints();
                 this.playersArray[0].playerPoints+=this.burial_chamber.whitePoints;
                 this.playersArray[1].playerPoints+=this.burial_chamber.blackPoints;
+                this.render($('.player-one-score'), this.playersArray[0].playerPoints);
+                this.render($('.player-two-score'), this.playersArray[1].playerPoints);
                 this.decideWinner();
             }
         // }
@@ -110,7 +112,7 @@ class Game{
         }
     }
 
-    newGame(){
-
+    render(domElement, value){
+        $(domElement).text(value);
     }
 }
