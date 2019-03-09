@@ -85,6 +85,8 @@ class Game{
                 this.burial_chamber.calcPoints();
                 this.playersArray[0].playerPoints+=this.burial_chamber.whitePoints;
                 this.playersArray[1].playerPoints+=this.burial_chamber.blackPoints;
+                this.render($('.player-one-score'), this.playersArray[0].playerPoints);
+                this.render($('.player-two-score'), this.playersArray[1].playerPoints);
                 this.decideWinner();
             }
         // }
@@ -100,17 +102,17 @@ class Game{
             }
         }
         if(currentWinner.length === 1){
-            console.log(`${currentWinner[0].playerName} wins!`);
+            alert(`${currentWinner[0].playerName} wins!`);
         }else{
             var tiedWinners = 'Tie between:';
             for(var i = 0; i < currentWinner.length; i++){
                 tiedWinners = tiedWinners + ' ' + currentWinner[i].playerName;
             }
-            console.log(tiedWinners);
+            alert(tiedWinners);
         }
     }
 
-    newGame(){
-
+    render(domElement, value){
+        $(domElement).text(value);
     }
 }
