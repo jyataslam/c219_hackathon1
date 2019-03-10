@@ -11,11 +11,10 @@ class Game{
         this.pyramids = null;
         this.market = null;
         this.currentRound = 1;
+        this.currentTurn = 0;
         this.currentPlayer = null;
-
         this.playersArray = [];
         this.playersColor = ['white', 'black', 'gray', 'brown'];
-
         this.playerHandler = this.playerHandler.bind(this);
         this.shipHandler = this.shipHandler.bind(this);
         this.dockHandler = this.dockHandler.bind(this);
@@ -23,6 +22,8 @@ class Game{
         this.addHarbor();
         this.addArea();
         this.createPlayers(2);
+        this.changePlayerTurn();
+
     }
 
     createPlayers(users) {
@@ -39,6 +40,14 @@ class Game{
         }
     }
 
+    changePlayerTurn(){
+        if (this.currentTurn % 2 === 0){
+            this.currentPlayer = this.playersArray[0];
+        } else {
+            this.currentPlayer = this.playersArray[1];
+        }
+    }
+
     addHarbor(){
         this.newGame = new Harbor(this.shipHandler);
     }
@@ -50,9 +59,15 @@ class Game{
         // this.pyramids = new Pyramids(this.dockHandler);
         // this.market = new Market(this.dockHandler);
     }
-    playerHandler(player){
-        this.currentPlayer = player;
-        console.log(player);
+
+    playerHandler(){
+        if (this.currentPlayer === this.playersArray[0]){
+            $('.playerOneBlocks').text(this.currentPlayer.currentBlockCount);
+        } else {
+            $('.playerTwoBlocks').text(this.currentPlayer.currentBlockCount);
+        }
+        this.currentTurn++;
+        this.changePlayerTurn();
     }
 
     shipHandler(ship){
@@ -65,6 +80,10 @@ class Game{
     dockHandler(dock){
         // this.dockClicked = dock;
         this.burial_chamber.dockSelected = dock;
+
+        this.currentTurn++;
+        this.changePlayerTurn();
+
         this.temple.dockSelected = dock;
         console.log(dock);
     }
