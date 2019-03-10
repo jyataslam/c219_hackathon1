@@ -62,30 +62,26 @@ class Game{
 
     playerHandler(){
         if (this.currentPlayer === this.playersArray[0]){
-            $('.playerOneBlocks').text(this.currentPlayer.currentBlockCount);
+            this.playersArray[0].playerCubes = this.currentPlayer.playerID.currentBlockCount;
+            $('.playerOneBlocks').text(this.playersArray[0].playerCubes);
         } else {
-            $('.playerTwoBlocks').text(this.currentPlayer.currentBlockCount);
+            this.playersArray[1].playerCubes = this.currentPlayer.playerID.currentBlockCount;
+            $('.playerTwoBlocks').text(this.playersArray[1].playerCubes);
         }
         this.currentTurn++;
         this.changePlayerTurn();
     }
 
     shipHandler(ship){
-        // this.shipSailed = ship;
         this.burial_chamber.sailingShip = ship;
         this.temple.sailingShip = ship;
-        console.log(ship);
     }
 
     dockHandler(dock){
-        // this.dockClicked = dock;
         this.burial_chamber.dockSelected = dock;
-
         this.currentTurn++;
         this.changePlayerTurn();
-
         this.temple.dockSelected = dock;
-        console.log(dock);
     }
 
     nextRound(){
