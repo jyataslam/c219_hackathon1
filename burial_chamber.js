@@ -18,6 +18,7 @@ class BurialChamber{
         $('.burial-dock-button').on('click', this.handleDock);
         // this.addDock();
         this.clickDock();
+
     }
     handleDock(){
         this.dockCallBack(this);
@@ -29,12 +30,11 @@ class BurialChamber{
         console.log('clicked')
     }
 
-    // addDock(){
-    // var dockButton = $('<button>').addClass('docking').text('Dock Ship').on('click', this.handleDock);
-    // this.dock = $('<div>').addClass('dock');
-    // this.dock.append(dockButton);
-    // this.render(this.dock);
-    // }
+    addDock(){
+    this.dock = $('<div>').addClass('dock');
+    this.render(this.dock);
+    }
+
     render(object){
         $('.burialchamber-harbor').append(object)//change to your area        
     }
@@ -62,7 +62,7 @@ class BurialChamber{
         $('.ship').remove();
         $('.sail').remove();
     }
-    renderShipCubes(){//adjust this to your specific area
+    renderShipCubes(){
         for(var i = this.sailingShip.currentStones.length-1; i >= 0 ; i--){
             this.currentStone = $(this.sailingShip.currentStones[i]);
             this.addCubeToArray();
@@ -78,7 +78,7 @@ class BurialChamber{
         }
         console.log(this.cubeArray);
     }
-    calcPoints(){//adjust to your area
+    calcPoints(){
         for(var i = 0; i < this.cubeArray.length; i++){
             var blackCounter = 0;
             var whiteCounter = 0;

@@ -79,6 +79,7 @@ class Game{
 
     dockHandler(dock){
         this.burial_chamber.dockSelected = dock;
+        
         this.currentTurn++;
         this.changePlayerTurn();
         this.temple.dockSelected = dock;
