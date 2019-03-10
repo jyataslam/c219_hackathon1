@@ -1,51 +1,78 @@
+
 class Obelisks {
-    constructor( image, sailingShip ){
-        this.image = image;
-        this.dockedStatus = false;
-        this.points = {
-            player1: 0,
-            player2: 0
+    constructor(dockClicked) {
+        this.docked = false;
+        this.sailingShip = null;
+        this.dockSelected = null;
+        this.dockCallBack = dockClicked;
+        this.dock = $('.obelisks-harbor');
+        this.cubesCounter = {
+            black: 0,
+            white: 0
         }
-        // this.blockColor = game.newRound.allShips[0].currentStones[0].css('background-color)
-        
-        this.sailingShip = sailingShip;
+        this.blackPoints = 0;
+        this.whitePoints = 0;
+        this.currentStone = null;
+        this.stoneColor = null;
+
         this.handleDockClick = this.handleDockClick.bind(this);
+        $('.obelisks-dock-button').on('click', this.handleDockClick);
     }
-    getPoints(){
-        if ( this.dockedStatus != false ){
-            for ( var i = 0; i < this.sailingShip.currentStones.length - 1; i++ ){
-                //need to target the specific squares on the docking ship
-                if (this.sailingShip.currentStones[i].css('background-color') === 'black'){
-                    //increase player 1 points
-                    this.points.player1++;
-                    $('#obelisk1').text(this.points.player1);
-                } else if (this.sailingShip.currentStones[i].css('background-color') === 'white'){
-                    //increase player 2 points
-                    this.points.player2++
-                    $('#obelisk2').text(this.points.player2);
-                } else {
-                    return
-                }
+    
+    handleDockClick() {
+        this.dockCallBack(this);
+        this.dockShip();
+    }
+
+    render(domElement, object) {
+        domElement.append(object)
+    }
+
+    dockShip() {
+        if (!this.docked) {
+            if (this.sailingShip && this.dockSelected) {
+                this.docked = true;
+                this.render(this.dock, this.sailingShip.ship);
+                this.renderShipCubes();
             }
         }
     }
-    calcBonusPoints(){
-        if (this.points.player1 > this.points.player2){
-           //if player 1 has more blocks in the obelisk, add 10 to their total
-           this.points.player1 += 10;
-       } else if (this.points.player1 < this.points.player2){
-           //if player 2 has more blocks in the obelisk, add 10 to their total
-           this.points.player2 += 10;
-       } else {
-           //if both players have the same number of blocks in obelisk, add 5 to both
-           this.points.player1 += 5;
-           this.points.player2 += 5;
-       }
-    }
-    handleDockClick(){
-        
-    }
-    render(){
 
+    renderShipCubes() {
+        for (var i = this.sailingShip.currentStones.length - 1; i >= 0; i--) {
+            this.currentStone = $(this.sailingShip.currentStones[i]);
+            this.stoneColor = this.currentStone.css('background-color');
+            var blackStoneContainer = $('.obelisks-column > .black');
+            var whiteStoneContainer = $('.obelisks-column > .white');
+            var blackStoneCounter = $('.black > .stone');
+            var whiteStoneCounter = $('.white > .stone');
+            if(this.stoneColor === 'rgb(0, 0, 0)'){
+                if(blackStoneCounter.length === 0){
+                    this.render(blackStoneContainer, this.currentStone);
+                }else{
+                    this.currentStone.remove();
+                }
+                this.cubesCounter.black++;
+                blackStoneCounter.text(this.cubesCounter.black).css('color', 'white');
+            }else if(this.stoneColor === 'white'){
+                if(whiteStoneCounter.length === 0){
+                    this.render(whiteStoneContainer, this.currentStone);
+                }else{
+                    this.currentStone.remove();
+                }
+                this.cubesCounter.white++;
+                whiteStoneCounter.text(this.cubesCounter.white);
+            }
+        }
+    }
+
+    calcPoints() {
+        if(this.cubesCounter.black > this.cubesCounter.white){
+            this.blackPoints+=10;
+            this.whitePoints+=1;
+        }else{
+            this.blackPoints+=1;
+            this.whitePoints+=10;
+        }
     }
 }
