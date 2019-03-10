@@ -1,49 +1,48 @@
 
 class Players {
-    constructor(color, startingCube, playerHandler) {
+    constructor(color, startingCubes, playerHandler) {
         this.playerHandler2 = playerHandler;
-        this.color = color;
-        this.startingCube = startingCube;
-        this.block = [];
+        this.playerColor = color;
         this.maxCubes = 5;
-        this.cards = null;
-        this.placeCubes = this.placeCubes
-        this.rechargeButton = null;
-        //this.rechargeCubes = rechargeCubes();
-        this.currentNumber = 0;
-        // this.playerTurn = 1;
-        //var findPlayerTurns = [0, 1, 2, 3];
+        this.currentBlockCount = startingCubes;
         this.playerClick = this.playerClick.bind(this);
         this.rechargeCubes = this.rechargeCubes.bind(this);
-        this.addRechargeButton();
-        // this.addPlayersToArray();
-        // $('.recharge-button).on('click', this.playerClick);
     }
-
 
     playerClick(){
+        this.rechargeCubes();
         this.playerHandler2(this);
-        // this.rechargeCubes();
-
     }
-    // addPlayersToArray () {
-    //     this.players.push(player1);
-    // }
-
-    addRechargeButton(){
-
-      console.log('clicked')
-    }
-    rechargeCubes() {
-        // $('.recharge').click(buttonClick);
-        if (this.startingCube <= 2) {
-            this.startingCube += 3;
+   
+    rechargeCubes(){
+        if (this.currentBlockCount <= 2){
+            this.currentBlockCount += 3;
+        } else if (this.currentBlockCount >= 3){
+            this.currentBlockCount = 5;
+        } else if (this.currentBlockCount = 5){
         } else {
-            this.startingCube = 5;
+        return
         }
-        console.log(this.startingCube);
-        return;
     }
+
+    addStoneToBoat(){
+        this.currentBlockCount -= 1;
+        return this.currentBlockCount;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //
     // currentCubes() {

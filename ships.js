@@ -14,7 +14,7 @@ class Harbor{
     addShip(){
         for(var i = 0; i < 4; i++){
             var randomCapacity = Math.floor(Math.random()*4 + 1);
-            var newShip = new Ship(randomCapacity, this.requirements[randomCapacity], this.sailingShip);//randomize first, object value for second
+            var newShip = new Ship(randomCapacity, this.requirements[randomCapacity], this.sailingShip, );//randomize first, object value for second
             this.allShips.push(newShip);//record in array; useful when sending to destination later
             this.render(this.allShips[i].ship);
             var sailButton = $('<button>').addClass('sail').text('Sail').on('click', newShip.handleBtnClick);
@@ -27,7 +27,7 @@ class Harbor{
 }
 
 class Ship{
-    constructor(maxStones, sailRequirement, sailCallBack){
+    constructor(maxStones, sailRequirement, sailCallBack, currentPlayer){
         this.maxStones = maxStones;//how many divs to make inside
         this.currentStones = [];//array for stone colors; when appending onto ship or destination go length-1 -> 0 due to how html flow
         this.sailRequirement = sailRequirement;
@@ -39,14 +39,15 @@ class Ship{
         this.ship = $('<div>').css('background-color', 'burlywood').addClass('ship').on('click', this.addStone);//class to do css later
     }
     addStone(color){//change 'black' to color later
-        if(this.currentStones.length < this.maxStones){//if ship is not full, add a stone
-            var newStone = $('<div>').css('background-color', color).addClass('stone');//class to do css later
-            this.currentStones.push(newStone);//record in array; useful when sending to destination later
-            this.render(newStone); //comment out till attached with html + css or error
-            console.log(`${color} stone was added`);
-        }else{
-            console.log(`Ship is full. Cannot add stone.`);
-        }
+    debugger;
+            if(this.currentStones.length < this.maxStones){//if ship is not full, add a stone
+                var newStone = $('<div>').css('background-color', color).addClass('stone');//class to do css later
+                this.currentStones.push(newStone);//record in array; useful when sending to destination later
+                this.render(newStone); //comment out till attached with html + css or error
+                console.log(`${color} stone was added`);
+            }else{
+                console.log(`Ship is full. Cannot add stone.`);
+            }
     }
     render(playerStone){
         if(this.currentStones.length <= 1){
@@ -61,9 +62,9 @@ class Ship{
     }
     sail(){
         if(this.currentStones.length >= this.sailRequirement){//set requirement
-            return `Full speed ahead!`;              
+            return alert(`Full speed ahead!`);              
         }else{
-            return `Ship does not meet requirement yet!`;
+            return alert('Need more stones!');
         }
     }
     specialCard(){
