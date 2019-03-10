@@ -17,17 +17,17 @@ class BurialChamber{
         this.handleDock = this.handleDock.bind(this);
         $('.burial-dock-button').on('click', this.handleDock);
         // this.addDock();
-        this.clickDock();
+        // this.clickDock();
     }
     handleDock(){
         this.dockClicked(this);
         this.dockShip();
     }
 
-    clickDock(){
-        this.dock = $('.burialchamber-harbor');
-        // console.log('clicked')
-    }
+    // clickDock(){
+    //     this.dock = $('.burialchamber-harbor');
+    //     // console.log('clicked')
+    // }
 
     // addDock(){
     // var dockButton = $('<button>').addClass('docking').text('Dock Ship').on('click', this.handleDock);
@@ -39,7 +39,6 @@ class BurialChamber{
         $('.burialchamber-harbor').append(object)//change to your area        
     }
     dockShip(){
-        debugger;
         if(!this.docked){
             if(this.sailingShip && this.dockSelected){
                 this.docked = true;    
@@ -104,4 +103,3 @@ class BurialChamber{
         }
     }
 }
-
