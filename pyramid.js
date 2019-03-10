@@ -5,50 +5,37 @@ class Pyramid {
         this.dockSelected = null;
         this.dockCallBack = dockClicked;
         this.moveStone = moveStone;
-        this.dock = null;
+        this.dock = $('.pyramid-harbor');
 
         this.pyramidPoints = [2, 1, 3, 2, 4, 3, 2, 1, 3, 2, 3, 1, 3, 4];
         this.pointsIndex = 0;
         this.blackPoints = 0;
         this.whitePoints = 0;
-        this.currentRound = null;
         this.currentStone = null;
         this.stoneColor = null;
 
         this.handleDockClick = this.handleDockClick.bind(this);
         this.handleStoneUnload = this.handleStoneUnload.bind(this);
         $('.pyramid-dock-button').on('click', this.handleDockClick);
-
-        this.clickDock();
     }
+
     handleDockClick() {
-        console.log('hi');
         this.dockCallBack(this);
         this.dockShip();
     }
 
     render(domElement, object) {
-        $(domElement).append(object)
-    }
-
-    clickDock(){
-        this.dock = $('.pyramid-harbor');
-        console.log('clicked')
+        domElement.append(object)
     }
 
     dockShip() {
         if (!this.docked) {
             if (this.sailingShip && this.dockSelected) {
                 this.docked = true;
-                this.dock.append(this.sailingShip.ship);
+                this.render(this.dock, this.sailingShip.ship);
                 this.renderShipCubes();
             }
         }
-    }
-
-    removeShip() {
-        $('.ship').remove();
-        $('.sail').remove();
     }
 
     handleStoneUnload(){
