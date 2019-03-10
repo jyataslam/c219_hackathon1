@@ -25,10 +25,6 @@ class Players {
         }
     }
 
-    addStoneToBoat(){
-        this.currentBlockCount -= 1;
-        return this.currentBlockCount;
-    }
 
 
 
