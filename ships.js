@@ -28,23 +28,23 @@ class Harbor{
             var randomCapacity = Math.floor(Math.random()*4 + 1);
             var sailRequirement = this.requirements[randomCapacity].value;
             var shipImage = this.requirements[randomCapacity].image;
-            var newShip = new Ship(randomCapacity, sailRequirement, shipImage, this.sailingShip);//randomize first, object value for second
-            this.allShips.push(newShip);//record in array; useful when sending to destination later
-            this.render(this.allShips[i].ship);
+            var newShip = new Ship(randomCapacity, sailRequirement, shipImage, this.sailingShip);
+            this.allShips.push(newShip);
+            this.render($('.harbor'), this.allShips[i].ship);
             var sailButton = $('<button>').addClass('sail').text('Sail').on('click', newShip.handleBtnClick);
-            this.render(sailButton);
+            this.render($('.harbor'), sailButton);
         }
     }
 
-    render(object){
-        $('.harbor').append(object);
+    render(domElement, object){
+        $(domElement).append(object);
     }
 }
 
 class Ship{
     constructor(maxStones, sailRequirement, shipImage, sailCallBack){
-        this.maxStones = maxStones;//how many divs to make inside
-        this.currentStones = [];//array for stone colors; when appending onto ship or destination go length-1 -> 0 due to how html flow
+        this.maxStones = maxStones;
+        this.currentStones = [];
         this.sailRequirement = sailRequirement;
         this.shipImage = shipImage;
         this.sailCallBack = sailCallBack;
@@ -52,25 +52,23 @@ class Ship{
         this.addStone = this.addStone.bind(this);
         this.handleBtnClick = this.handleBtnClick.bind(this);
 
-        this.ship = $('<div>').css('background-image', 'url('+shipImage+')').addClass('ship').on('click', this.addStone);//class to do css later
+        this.ship = $('<div>').css('background-image', 'url('+shipImage+')').addClass('ship').on('click', this.addStone);
     }
 
-    addStone(color){//change 'black' to color later
-            if(this.currentStones.length < this.maxStones){//if ship is not full, add a stone
-                var newStone = $('<div>').css('background-color', color).addClass('stone');//class to do css later
-                this.currentStones.push(newStone);//record in array; useful when sending to destination later
-                this.render(newStone); //comment out till attached with html + css or error
-                console.log(`${color} stone was added`);
+    addStone(color){
+            if(this.currentStones.length < this.maxStones){
+                var newStone = $('<div>').css('background-color', color).addClass('stone');
+                this.currentStones.push(newStone);
+                this.render(newStone); 
             }else{
-                console.log(`Ship is full. Cannot add stone.`);
             }
     }
 
     render(playerStone){
         if(this.currentStones.length <= 1){
-            $(this.ship).append(playerStone);//assume div with class of ship
+            $(this.ship).append(playerStone);
         }else{
-            playerStone.insertBefore(this.ship.find('>:first-child'));//puts new stones before old ones - counter flow of html
+            playerStone.insertBefore(this.ship.find('>:first-child'));
         }
     }
 
@@ -79,11 +77,9 @@ class Ship{
         this.sail();
     }
 
-    sail(){
-        if(this.currentStones.length >= this.sailRequirement){//set requirement
-            return alert(`Full speed ahead!`);              
+    sail(){//does nothing currently
+        if(this.currentStones.length >= this.sailRequirement){
         }else{
-            return alert('Need more stones!');
         }
     }
 
