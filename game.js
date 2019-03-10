@@ -20,33 +20,29 @@ class Game{
         this.shipHandler = this.shipHandler.bind(this);
         this.dockHandler = this.dockHandler.bind(this);
 
-
-
-
         this.addHarbor();
         this.addArea();
         this.createPlayers(2);
-
-
     }
 
     createPlayers(users) {
-        // this.player1 = new Players(c);
-        // this.playersArray.push(this.player1);
-        // this.player2 = new Players("white", 3, this.playerHandler);
-        // this.playersArray.push(this.player2);
         for(var i = 0; i < users; i++){
             var player = new Players(this.playersColor[i], i+2, this.playerHandler);
-            this.playersArray.push(player);
+            this.playersArray.push({
+                playerID: player,
+                playerName: 'player' + (i+1),
+                playerPoints: 0,
+                playerCubes: i+2
+            });
             var recharge = $('#'+i);
             recharge.on('click', player.playerClick);
         }
-
     }
 
     addHarbor(){
         this.newGame = new Harbor(this.shipHandler);
     }
+
     addArea(){
         this.burial_chamber = new BurialChamber(this.dockHandler);
         this.temple = new Temple(this.dockHandler);
@@ -55,25 +51,28 @@ class Game{
         // this.market = new Market(this.dockHandler);
     }
     playerHandler(player){
-        debugger;
         this.currentPlayer = player;
         console.log(player);
     }
+
     shipHandler(ship){
         // this.shipSailed = ship;
         this.burial_chamber.sailingShip = ship;
         this.temple.sailingShip = ship;
         console.log(ship);
     }
+
     dockHandler(dock){
         // this.dockClicked = dock;
         this.burial_chamber.dockSelected = dock;
         this.temple.dockSelected = dock;
         console.log(dock);
     }
+
     nextRound(){
         // if($('.harbor > .ship').length < 1){
             this.currentRound++;
+            this.burial_chamber.currentRound = this.currentRound;
             if(this.currentRound < 7){
                 this.burial_chamber.docked = false;
                 this.temple.docked = false;
@@ -87,8 +86,37 @@ class Game{
                 this.addHarbor();
                 console.log(this.currentRound)
             }else{
-                return `game over`;
+                this.burial_chamber.calcPoints();
+                this.playersArray[0].playerPoints+=this.burial_chamber.whitePoints;
+                this.playersArray[1].playerPoints+=this.burial_chamber.blackPoints;
+                this.render($('.player-one-score'), this.playersArray[0].playerPoints);
+                this.render($('.player-two-score'), this.playersArray[1].playerPoints);
+                this.decideWinner();
             }
         // }
+    }
+
+    decideWinner(){
+        var currentWinner = [this.playersArray[0]];
+        for(var i = 1; i < this.playersArray.length; i++){
+            if(this.playersArray[i].playerPoints > currentWinner[0].playerPoints){
+                currentWinner[0] = this.playersArray[i];
+            }else if(this.playersArray[i].playerPoints === currentWinner[0].playerPoints){
+                currentWinner.push(this.playersArray[i]);
+            }
+        }
+        if(currentWinner.length === 1){
+            alert(`${currentWinner[0].playerName} wins!`);
+        }else{
+            var tiedWinners = 'Tie between:';
+            for(var i = 0; i < currentWinner.length; i++){
+                tiedWinners = tiedWinners + ' ' + currentWinner[i].playerName;
+            }
+            alert(tiedWinners);
+        }
+    }
+
+    render(domElement, value){
+        $(domElement).text(value);
     }
 }
