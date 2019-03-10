@@ -45,7 +45,7 @@ class Game{
 
     addArea(){
         this.burial_chamber = new BurialChamber(this.dockHandler);
-        // this.temple = new Temple(this.dockHandler);
+        this.temple = new Temple(this.dockHandler);
         // this.obelisks = new Obelisks(this.dockHandler);
         // this.pyramids = new Pyramids(this.dockHandler);
         // this.market = new Market(this.dockHandler);
@@ -58,12 +58,14 @@ class Game{
     shipHandler(ship){
         // this.shipSailed = ship;
         this.burial_chamber.sailingShip = ship;
+        this.temple.sailingShip = ship;
         console.log(ship);
     }
 
     dockHandler(dock){
         // this.dockClicked = dock;
         this.burial_chamber.dockSelected = dock;
+        this.temple.dockSelected = dock;
         console.log(dock);
     }
 
@@ -73,12 +75,14 @@ class Game{
             this.burial_chamber.currentRound = this.currentRound;
             if(this.currentRound < 7){
                 this.burial_chamber.docked = false;
-                // this.temple.docked = false;
+                this.temple.docked = false;
                 // this.obelisks.docked = false;
                 // this.pyramids.docked = false;
                 // this.market.docked = false; 
                 this.burial_chamber.sailingShip = null;
                 this.burial_chamber.dockSelected = null;
+                this.temple.sailingShip = null;
+                this.temple.dockSelected = null;
                 this.addHarbor();
                 console.log(this.currentRound)
             }else{
