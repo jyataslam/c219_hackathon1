@@ -1,4 +1,3 @@
-
 class Players {
     constructor(color, startingCubes, playerHandler) {
         this.playerHandler2 = playerHandler;

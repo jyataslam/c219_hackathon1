@@ -1,4 +1,3 @@
-
 class Game{
     constructor(name){
         this.name = name;
@@ -110,7 +109,6 @@ class Game{
                 this.pyramid.sailingShip = null;
                 this.pyramid.dockSelected = null;
                 this.addHarbor();
-                console.log(this.currentRound);
                 this.addTemplePoints();
             }else{
                 this.addTemplePoints();
@@ -123,6 +121,7 @@ class Game{
             }
         // }
     }
+
     addTemplePoints(){
         this.temple.calcPoints();
         this.playersArray[0].playerPoints+=this.temple.whitePoints;
