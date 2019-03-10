@@ -23,7 +23,6 @@ class Game{
         this.addArea();
         this.createPlayers(2);
         this.changePlayerTurn();
-
     }
 
     createPlayers(users) {

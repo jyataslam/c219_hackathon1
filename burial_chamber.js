@@ -6,7 +6,7 @@ class BurialChamber{
         this.dockSelected = null;
         this.dockCallBack = dockClicked;
         this.dock = null;
-        this.cubeArray = [[],[],[]];//change to how you calculate points & how you want to push
+        this.cubeArray = [[],[],[]];
         this.cubeArrayPosition = 0;
         this.blackPoints = 0;
         this.whitePoints = 0;
@@ -27,7 +27,6 @@ class BurialChamber{
 
     clickDock(){
         this.dock = $('.burialchamber-harbor');
-        console.log('clicked')
     }
 
     addDock(){
@@ -36,7 +35,7 @@ class BurialChamber{
     }
 
     render(object){
-        $('.burialchamber-harbor').append(object)//change to your area        
+        $('.burialchamber-harbor').append(object);      
     }
     dockShip(){
         if(!this.docked){
