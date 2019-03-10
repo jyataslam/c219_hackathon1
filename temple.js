@@ -71,9 +71,10 @@ class Temple {
         console.log(this.stonesOnTemple);
     }
     calcPoints() {
-        debugger;
         var blackCount = 0;
         var whiteCount = 0;
+        this.blackPoints = 0;
+        this.whitePoints = 0;
         for (var i = 0; i < this.stonesOnTemple.length; i++) {
             var lastStoneOnCurrentArray = this.stonesOnTemple[i][this.stonesOnTemple[i].length-1];
             if (lastStoneOnCurrentArray === 'rgb(0, 0, 0)') {
