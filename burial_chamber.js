@@ -5,7 +5,7 @@ class BurialChamber{
         this.sailingShip = null;
         this.dockSelected = null;
         this.dockCallBack = dockClicked;
-        // this.dock = null;
+        this.dock = null;
         this.cubeArray = [[],[],[]];//change to how you calculate points & how you want to push
         this.cubeArrayPosition = 0;
         this.blackPoints = 0;
@@ -17,17 +17,17 @@ class BurialChamber{
         this.handleDock = this.handleDock.bind(this);
         $('.burial-dock-button').on('click', this.handleDock);
         // this.addDock();
-        // this.clickDock();
+        this.clickDock();
     }
     handleDock(){
-        this.dockClicked(this);
+        this.dockCallBack(this);
         this.dockShip();
     }
 
-    // clickDock(){
-    //     this.dock = $('.burialchamber-harbor');
-        // console.log('clicked')
-    // }
+    clickDock(){
+        this.dock = $('.burialchamber-harbor');
+        console.log('clicked')
+    }
 
     // addDock(){
     // var dockButton = $('<button>').addClass('docking').text('Dock Ship').on('click', this.handleDock);
