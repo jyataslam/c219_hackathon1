@@ -54,7 +54,6 @@ class BurialChamber{
         // this.currentRound++;
         // if(this.currentRound === 7){
         //     var points = this.calcPoints();
-        //     console.log(points);
         // }
         // } //turn on when all docks set        
     }
@@ -76,7 +75,6 @@ class BurialChamber{
         if(this.cubeArrayPosition === 3){
             this.cubeArrayPosition = 0;
         }
-        console.log(this.cubeArray);
     }
     calcPoints(){//adjust to your area
         for(var i = 0; i < this.cubeArray.length; i++){

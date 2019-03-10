@@ -30,7 +30,6 @@ class Temple {
     // }
     clickDock(){
         this.dock = $('.temple-harbor');
-        console.log('clicked')
     }
     dockShip() {
         if (!this.docked) {
@@ -47,7 +46,6 @@ class Temple {
         this.currentRound++;
         if (this.currentRound === 7) {
             var points = this.calcPoints();
-            console.log(points);
         }
     }
     removeShip() {
@@ -68,7 +66,6 @@ class Temple {
         if(this.stonesOnTemplePosition === 4){
             this.stonesOnTemplePosition = 0;
         }
-        console.log(this.stonesOnTemple);
     }
     calcPoints() {
         var blackCount = 0;

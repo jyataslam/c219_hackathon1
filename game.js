@@ -1,4 +1,3 @@
-
 class Game{
     constructor(name){
         this.name = name;
@@ -99,7 +98,6 @@ class Game{
                 this.temple.sailingShip = null;
                 this.temple.dockSelected = null;
                 this.addHarbor();
-                console.log(this.currentRound);
                 this.addTemplePoints();
             }else{
                 this.addTemplePoints();
@@ -112,6 +110,7 @@ class Game{
             }
         // }
     }
+
     addTemplePoints(){
         this.temple.calcPoints();
         this.playersArray[0].playerPoints+=this.temple.whitePoints;
@@ -119,6 +118,7 @@ class Game{
         this.render($('.player-one-score'), `Score: ${this.playersArray[0].playerPoints}`);
         this.render($('.player-two-score'), `Score: ${this.playersArray[1].playerPoints}`);
     }
+
     decideWinner(){
         var currentWinner = [this.playersArray[0]];
         for(var i = 1; i < this.playersArray.length; i++){
