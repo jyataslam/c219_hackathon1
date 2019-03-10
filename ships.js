@@ -1,4 +1,3 @@
-
 class Harbor{
     constructor(shipFinder){
         this.allShips = [];
@@ -23,6 +22,7 @@ class Harbor{
         this.sailingShip = shipFinder;
         this.addShip();
     }
+
     addShip(){
         for(var i = 0; i < 4; i++){
             var randomCapacity = Math.floor(Math.random()*4 + 1);
@@ -35,6 +35,7 @@ class Harbor{
             this.render(sailButton);
         }
     }
+
     render(object){
         $('.harbor').append(object);
     }
@@ -53,8 +54,8 @@ class Ship{
 
         this.ship = $('<div>').css('background-image', 'url('+shipImage+')').addClass('ship').on('click', this.addStone);//class to do css later
     }
+
     addStone(color){//change 'black' to color later
-    // debugger;
             if(this.currentStones.length < this.maxStones){//if ship is not full, add a stone
                 var newStone = $('<div>').css('background-color', color).addClass('stone');//class to do css later
                 this.currentStones.push(newStone);//record in array; useful when sending to destination later
@@ -64,6 +65,7 @@ class Ship{
                 console.log(`Ship is full. Cannot add stone.`);
             }
     }
+
     render(playerStone){
         if(this.currentStones.length <= 1){
             $(this.ship).append(playerStone);//assume div with class of ship
@@ -71,10 +73,12 @@ class Ship{
             playerStone.insertBefore(this.ship.find('>:first-child'));//puts new stones before old ones - counter flow of html
         }
     }
+
     handleBtnClick(){
         this.sailCallBack(this);
         this.sail();
     }
+
     sail(){
         if(this.currentStones.length >= this.sailRequirement){//set requirement
             return alert(`Full speed ahead!`);              
@@ -82,6 +86,7 @@ class Ship{
             return alert('Need more stones!');
         }
     }
+
     specialCard(){
         $('.ship').attr('id', 'sortable');
         $('#sortable').sortable();
