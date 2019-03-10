@@ -100,18 +100,26 @@ class Game{
                 this.temple.sailingShip = null;
                 this.temple.dockSelected = null;
                 this.addHarbor();
-                console.log(this.currentRound)
+                console.log(this.currentRound);
+                this.addTemplePoints();
             }else{
+                this.addTemplePoints();
                 this.burial_chamber.calcPoints();
                 this.playersArray[0].playerPoints+=this.burial_chamber.whitePoints;
                 this.playersArray[1].playerPoints+=this.burial_chamber.blackPoints;
-                this.render($('.player-one-score'), this.playersArray[0].playerPoints);
-                this.render($('.player-two-score'), this.playersArray[1].playerPoints);
+                this.render($('.player-one-score'), `Score: ${this.playersArray[0].playerPoints}`);
+                this.render($('.player-two-score'), `Score: ${this.playersArray[1].playerPoints}`);
                 this.decideWinner();
             }
         // }
     }
-
+    addTemplePoints(){
+        this.temple.calcPoints();
+        this.playersArray[0].playerPoints+=this.temple.whitePoints;
+        this.playersArray[1].playerPoints+=this.temple.blackPoints;
+        this.render($('.player-one-score'), `Score: ${this.playersArray[0].playerPoints}`);
+        this.render($('.player-two-score'), `Score: ${this.playersArray[1].playerPoints}`);
+    }
     decideWinner(){
         var currentWinner = [this.playersArray[0]];
         for(var i = 1; i < this.playersArray.length; i++){

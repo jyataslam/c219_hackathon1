@@ -16,8 +16,9 @@ class BurialChamber{
         
         this.handleDock = this.handleDock.bind(this);
         $('.burial-dock-button').on('click', this.handleDock);
-        this.addDock();
-        // this.clickDock();
+        // this.addDock();
+        this.clickDock();
+
     }
     handleDock(){
         this.dockCallBack(this);
