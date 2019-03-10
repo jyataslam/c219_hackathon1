@@ -84,7 +84,12 @@ class Game{
                 this.temple.sailingShip = null;
                 this.temple.dockSelected = null;
                 this.addHarbor();
-                console.log(this.currentRound)
+                console.log(this.currentRound);
+                this.temple.calcPoints();
+                this.playersArray[0].playerPoints+=this.temple.whitePoints;
+                this.playersArray[1].playerPoints+=this.temple.blackPoints;
+                this.render($('.player-one-score'), this.playersArray[0].playerPoints);
+                this.render($('.player-two-score'), this.playersArray[1].playerPoints);
             }else{
                 this.burial_chamber.calcPoints();
                 this.playersArray[0].playerPoints+=this.burial_chamber.whitePoints;

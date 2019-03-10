@@ -220,6 +220,10 @@ body {
     width: 100%;
 }
 
+.temple-block .stone {
+    float: left;
+}
+
 .burialchamber-harbor {
     background-color: blue;
     border: 1px solid black;
@@ -442,7 +446,8 @@ body {
     background-color: white;
     border: 1px solid black;
     height: 33%;
-    width: 10%;
+    width: 55%;
+    float: left;
 }
 
 .burial-chamber {
