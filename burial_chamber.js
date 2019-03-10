@@ -4,7 +4,7 @@ class BurialChamber{
         this.docked = false;
         this.sailingShip = null;
         this.dockSelected = null;
-        this.dockClicked = dockClicked;
+        this.dockCallBack = dockClicked;
         this.dock = null;
         this.cubeArray = [[],[],[]];//change to how you calculate points & how you want to push
         this.cubeArrayPosition = 0;
@@ -17,16 +17,16 @@ class BurialChamber{
         this.handleDock = this.handleDock.bind(this);
         $('.burial-dock-button').on('click', this.handleDock);
         // this.addDock();
-        this.clickDock();
+        // this.clickDock();
     }
     handleDock(){
-        this.dockClicked(this);
+        this.dockCallBack(this);
         this.dockShip();
     }
 
     clickDock(){
         this.dock = $('.burialchamber-harbor');
-        // console.log('clicked')
+        console.log('clicked')
     }
 
     // addDock(){
@@ -44,18 +44,18 @@ class BurialChamber{
                 this.docked = true;    
                 this.dock.append(this.sailingShip.ship);
                 this.renderShipCubes();
-                this.nextRound();
+                // this.nextRound();
             }
         }
     }
     nextRound(){
         // if($('.harbor > .ship').length < 1){
-        this.removeShip();
-        this.currentRound++;
-        if(this.currentRound === 7){
-            var points = this.calcPoints();
-            console.log(points);
-        }
+        // this.removeShip();
+        // this.currentRound++;
+        // if(this.currentRound === 7){
+        //     var points = this.calcPoints();
+        //     console.log(points);
+        // }
         // } //turn on when all docks set        
     }
     removeShip(){
@@ -103,4 +103,3 @@ class BurialChamber{
         }
     }
 }
-

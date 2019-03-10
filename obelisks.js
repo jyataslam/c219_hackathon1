@@ -21,16 +21,16 @@ class Obelisks {
                     $('#obelisk1').text(this.points.player1);
                 } else if (this.sailingShip.currentStones[i].css('background-color') === 'white'){
                     //increase player 2 points
-                     this.points.player2++
-                     $('#obelisk2').text(this.points.player2);
-                 } else {
+                    this.points.player2++
+                    $('#obelisk2').text(this.points.player2);
+                } else {
                     return
                 }
             }
         }
     }
     calcBonusPoints(){
-       if (this.points.player1 > this.points.player2){
+        if (this.points.player1 > this.points.player2){
            //if player 1 has more blocks in the obelisk, add 10 to their total
            this.points.player1 += 10;
        } else if (this.points.player1 < this.points.player2){

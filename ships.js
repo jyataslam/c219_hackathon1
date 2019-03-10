@@ -3,10 +3,22 @@ class Harbor{
     constructor(shipFinder){
         this.allShips = [];
         this.requirements = {
-            1: 1,
-            2: 1,
-            3: 2,
-            4: 3
+            1: {
+                value: 1,
+                image: 'game_pieces/1.png'
+            },
+            2: {
+                value: 1,
+                image: 'game_pieces/2.jpg'
+            },
+            3: {
+                value: 2,
+                image: 'game_pieces/3.jpg'
+            },
+            4: {
+                value: 3,
+                image: 'game_pieces/4.jpg'
+            }
         };
         this.sailingShip = shipFinder;
         this.addShip();
@@ -14,7 +26,9 @@ class Harbor{
     addShip(){
         for(var i = 0; i < 4; i++){
             var randomCapacity = Math.floor(Math.random()*4 + 1);
-            var newShip = new Ship(randomCapacity, this.requirements[randomCapacity], this.sailingShip, );//randomize first, object value for second
+            var sailRequirement = this.requirements[randomCapacity].value;
+            var shipImage = this.requirements[randomCapacity].image;
+            var newShip = new Ship(randomCapacity, sailRequirement, shipImage, this.sailingShip);//randomize first, object value for second
             this.allShips.push(newShip);//record in array; useful when sending to destination later
             this.render(this.allShips[i].ship);
             var sailButton = $('<button>').addClass('sail').text('Sail').on('click', newShip.handleBtnClick);
@@ -27,16 +41,17 @@ class Harbor{
 }
 
 class Ship{
-    constructor(maxStones, sailRequirement, sailCallBack, currentPlayer){
+    constructor(maxStones, sailRequirement, shipImage, sailCallBack){
         this.maxStones = maxStones;//how many divs to make inside
         this.currentStones = [];//array for stone colors; when appending onto ship or destination go length-1 -> 0 due to how html flow
         this.sailRequirement = sailRequirement;
+        this.shipImage = shipImage;
         this.sailCallBack = sailCallBack;
 
         this.addStone = this.addStone.bind(this);
         this.handleBtnClick = this.handleBtnClick.bind(this);
 
-        this.ship = $('<div>').css('background-color', 'burlywood').addClass('ship').on('click', this.addStone);//class to do css later
+        this.ship = $('<div>').css('background-image', 'url('+shipImage+')').addClass('ship').on('click', this.addStone);//class to do css later
     }
     addStone(color){//change 'black' to color later
     debugger;
