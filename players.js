@@ -12,7 +12,7 @@ class Players {
         this.rechargeCubes();
         this.playerHandler2(this);
     }
-   
+
     rechargeCubes(){
         if (this.currentBlockCount <= 2){
             this.currentBlockCount += 3;

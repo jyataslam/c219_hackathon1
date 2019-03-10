@@ -307,9 +307,89 @@ body {
     position: relative;
 }
 
+.pyramid-bottom {
+    background-color: white;
+    border: 1px solid black;
+    box-sizing: border-box;
+    height: 33.1%;
+    width: 30%;
+}
+
+/* .pyramid-middle {
+    background-color: rgba(255, 255, 255, 0.527);
+    border: 1px solid black;
+    box-sizing: border-box;
+    height: 33.1%;
+    width: 30%;
+    position: absolute;
+    top: 16.55%;
+    left: 15%;
+    z-index: 1;
+} */
+
+.pyramid-block-container > div:nth-child(10){
+    background-color: rgba(122, 122, 122, 0);
+    border: 1px solid black;
+    box-sizing: border-box;
+    height: 33.1%;
+    width: 30%;
+    position: absolute;
+    top: 16.55%;
+    left: 15%;
+    z-index: 1;
+}
+
+.pyramid-block-container > div:nth-child(11){
+    background-color: rgba(122, 122, 122, 0);
+    border: 1px solid black;
+    box-sizing: border-box;
+    height: 33.1%;
+    width: 30%;
+    position: absolute;
+    top: 16.55%;
+    left: 45%;
+    z-index: 1;
+}
+
+.pyramid-block-container > div:nth-child(12){
+    background-color: rgba(122, 122, 122, 0);
+    border: 1px solid black;
+    box-sizing: border-box;
+    height: 33.1%;
+    width: 30%;
+    position: absolute;
+    top: 49.65%;
+    left: 15%;
+    z-index: 1;
+}
+
+.pyramid-block-container > div:nth-child(13){
+    background-color: rgba(122, 122, 122, 0);
+    border: 1px solid black;
+    box-sizing: border-box;
+    height: 33.1%;
+    width: 30%;
+    position: absolute;
+    top: 49.65%;
+    left: 45%;
+    z-index: 1;
+}
+
+.pyramid-top {
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid black;
+    box-sizing: border-box;
+    height: 33.1%;
+    width: 30%;
+    position: absolute;
+    top: 33.1%;
+    left: 30%;
+    z-index: 2;
+}
+/*
 .pyramid-block {
     background-color: transparent;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     box-sizing: border-box;
     height: 33.1%;
     width: 30%;
@@ -317,7 +397,7 @@ body {
 
 .pyramid-level2-container {
     background-color: transparent;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     position: absolute;
     height: 70%;
     width: 55%;
@@ -328,7 +408,7 @@ body {
 
 .pyramid-block-2nd {
     background-color: transparent;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     box-sizing: border-box;
     height: 50%;
     width: 50%;
@@ -336,13 +416,13 @@ body {
 
 .pyramid-block-3rd {
     background-color: transparent;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     box-sizing: border-box;
-    height: 33%;
-    width: 30%;
+    height: 50%;
+    width: 50%;
     position: absolute;
 }
-
+*/
 .temple-container {
     background-color: lightcyan;
     border: 1px solid black;

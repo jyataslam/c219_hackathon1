@@ -7,7 +7,7 @@ class Game{
         this.burial_chamber = null;
         this.temple = null;
         this.obelisks = null;
-        this.pyramids = null;
+        this.pyramid = null;
         this.market = null;
         this.currentRound = 1;
         this.currentTurn = 0;
@@ -17,12 +17,12 @@ class Game{
         this.playerHandler = this.playerHandler.bind(this);
         this.shipHandler = this.shipHandler.bind(this);
         this.dockHandler = this.dockHandler.bind(this);
+        this.pyramidStoneHandler = this.pyramidStoneHandler.bind(this);
 
         this.addHarbor();
         this.addArea();
         this.createPlayers(2);
         this.changePlayerTurn();
-
     }
 
     createPlayers(users) {
@@ -54,8 +54,8 @@ class Game{
     addArea(){
         this.burial_chamber = new BurialChamber(this.dockHandler);
         this.temple = new Temple(this.dockHandler);
+        this.pyramid = new Pyramid(this.dockHandler, this.pyramidStoneHandler);
         // this.obelisks = new Obelisks(this.dockHandler);
-        // this.pyramids = new Pyramids(this.dockHandler);
         // this.market = new Market(this.dockHandler);
     }
 
@@ -74,14 +74,22 @@ class Game{
     shipHandler(ship){
         this.burial_chamber.sailingShip = ship;
         this.temple.sailingShip = ship;
+        this.pyramid.sailingShip = ship;
     }
 
     dockHandler(dock){
         this.burial_chamber.dockSelected = dock;
-        
+        this.temple.dockSelected = dock;
+        this.pyramid.dockSelected = dock;
+        if(dock === this.pyramid){
+            this.addPyramidPoints();
+        }
         this.currentTurn++;
         this.changePlayerTurn();
-        this.temple.dockSelected = dock;
+    }
+
+    pyramidStoneHandler(){
+        this.addPyramidPoints();
     }
 
     nextRound(){
@@ -91,13 +99,15 @@ class Game{
             if(this.currentRound < 7){
                 this.burial_chamber.docked = false;
                 this.temple.docked = false;
+                this.pyramid.docked = false;
                 // this.obelisks.docked = false;
-                // this.pyramids.docked = false;
                 // this.market.docked = false; 
                 this.burial_chamber.sailingShip = null;
                 this.burial_chamber.dockSelected = null;
                 this.temple.sailingShip = null;
                 this.temple.dockSelected = null;
+                this.pyramid.sailingShip = null;
+                this.pyramid.dockSelected = null;
                 this.addHarbor();
                 this.addTemplePoints();
             }else{
@@ -118,6 +128,15 @@ class Game{
         this.playersArray[1].playerPoints+=this.temple.blackPoints;
         this.render($('.player-one-score'), `Score: ${this.playersArray[0].playerPoints}`);
         this.render($('.player-two-score'), `Score: ${this.playersArray[1].playerPoints}`);
+    }
+
+    addPyramidPoints(){
+            this.playersArray[0].playerPoints+=this.pyramid.whitePoints;
+            this.playersArray[1].playerPoints+=this.pyramid.blackPoints;
+            this.render($('.player-one-score'), `Score: ${this.playersArray[0].playerPoints}`);
+            this.render($('.player-two-score'), `Score: ${this.playersArray[1].playerPoints}`);
+            this.pyramid.whitePoints = 0;    
+            this.pyramid.blackPoints = 0;
     }
 
     decideWinner(){
