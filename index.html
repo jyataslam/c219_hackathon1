@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <title>Imhotep Hackathon</title>
+    
     <link href="https://fonts.googleapis.com/css?family=Enriqueta" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="ships.js"></script>
     <script src="burial_chamber.js"></script>
@@ -15,6 +17,83 @@
     <script src="main.js"></script>
 </head>
 <body>
+    <!-- <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Rules</h4>
+            </div>
+            <div class="modal-complete">  
+            <div class="modal-body">
+                <h3>Objective</h3>
+                <p> Each player assumes the role of an Egyptian master builder. You will have 6 rounds to transport your stones to the various sites and to erect monuments in such a way that you earn the most points. Whenever your turn comes up, you will select one of the following 3 action options:
+                    Get new stones
+                    Place 1 stone on the ship
+                    Sail 1 ship to a site
+                    Delivering the stones gets you various points in various ways - sometimes more points, sometimes fewer; sometimes right away, sometimes at the end of a round, and sometimes at the end of the game. Whoever has the most points after 6 rounds is the winner.
+                </p>
+                <h3>Turns</h3>
+                <p>The player whose turn it is must carry out exactly <strong>one</strong> of the following 4 actions:
+
+                <p><strong>1.</strong> Get New Stones:
+                    Take 3 stones of your color from the stone quarry and place them on your player stats zone. Maximum of 5 per player.
+                    For example, if you only have space for 2 stones and you choose this action, you can only add 2 stones.
+
+                </p>
+                </p>
+
+                <p>
+                    <strong>2.</strong> Place 1 Stone On A Ship:
+                    Take 1 stone from your supply sled token and place it on any empty space on a ship that has not yet sailed to a site.
+                </p>
+                <p><strong>3.</strong> Dock 1 ship to a site board. You must observe 2 conditions, however:
+
+                    The ship must already be loaded with at least the minimum required number of stones. The gray stone symbols at the bow of the ship indicate the minimum number for that ship. This number varies from ship to ship.
+
+                    The site to which the ship is sailing must still have an open dock. In other words, no other ship can have sailed to it in this round.
+
+                    The ship's stones are then unloaded by their owner (indicated by color) in order from front to back and delivered to the site - beginning with the stone placed closest to the front. Ignore any empty spaces on the ship.
+
+                <p>At each of the 5 sites, there are different rules for what the stone's owner will receive for each stone delivered, and when they will receive it. The market and the pyramid are assessed immediately. The temple is assessed at the end of each round.
+
+                    The burial chamber and the obelisks are not assessed until the end of the game.
+                </p>
+
+                <strong>4.</strong> You may sail a ship. You may even sail a ship when you do not have a stone of your own on it. The only requirement is that both of the above conditions must be met. After a site has been sailed to, the now-empty ship remains at the site's mooring area until the end of the round.
+
+                This way, you can see that no more ships can sail to that site during that same round. No more than one ship can sail to any given site per round.
+                </p>
+                <h3>End Of Round</h3>
+                <p>When all 4 ships have been sailed to the sites, the round ends immediately. The pyramid yields points immediately for each stone delivered, in accordance with the number value indicated on the space.
+
+                    Now the temple is assessed. Each stone visible from above yields 1 point. In other words, stones covered by other stones no longer yield any points.
+                </p>
+
+                <h3>End of the Game</h3>
+                <p>The game ends after 6 rounds.
+
+                    Then the final point assessment, or scoring, takes place.
+
+                    Final Point Assessment (scoring)
+                    Start by assessing the stones in the burial chamber.
+
+                    Then it is time to assess the obelisks.
+                    The player with the most points is the winner.
+
+                    In case of a tie: The player with the greater number of stones on his or her supply sled token is the winner. If this is also a tie, the tied players share first place.
+
+
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Let's Play</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div> -->
     <div class="header">
         <div class="game-title"></div>
     </div>
@@ -33,7 +112,6 @@
             </div>
             <div class="round-container">
                 <span class="round-title">Round 1</span>
-                <span class="fight">Fight!</span>
             </div>
             <div class="player-two-container">
                 <div class="player-title">
@@ -137,94 +215,16 @@
 
 <!--<head>-->
     <!--<link rel="stylesheet" href="style.css">-->
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
+    
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+    
     <!--<script src="main.js"></script>-->
-    <!--<script type="text/javascript">-->
-        <!--$(window).on('load',function(){-->
-            <!--$('#myModal').modal('show');-->
-        <!--});-->
-    <!--</script>-->
+    
     <!--<div class="container">-->
     <!--</div>-->
 <!--</head>-->
 <!--<body>-->
-<!--<div class="modal fade" id="myModal" role="dialog">-->
-    <!--<div class="modal-dialog modal-lg">-->
-        <!--<div class="modal-content">-->
-            <!--<div class="modal-header">-->
-                <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
-                <!--<h4 class="modal-title">Rules</h4>-->
-            <!--</div>-->
-            <!--<div class="modal-body">-->
-                <!--<h3>Objective</h3>-->
-                <!--<p> Each player assumes the role of an Egyptian master builder. You will have 6 rounds to transport your stones to the various sites and to erect monuments in such a way that you earn the most points. Whenever your turn comes up, you will select one of the following 3 action options:-->
-                    <!--Get new stones-->
-                    <!--Place 1 stone on the ship-->
-                    <!--Sail 1 ship to a site-->
-                    <!--Delivering the stones gets you various points in various ways - sometimes more points, sometimes fewer; sometimes right away, sometimes at the end of a round, and sometimes at the end of the game. Whoever has the most points after 6 rounds is the winner.-->
-                <!--</p>-->
-                <!--<h3>Turns</h3>-->
-                <!--<p>The player whose turn it is must carry out exactly <strong>one</strong> of the following 4 actions:-->
 
-                <!--<p><strong>1.</strong> Get New Stones:-->
-                    <!--Take 3 stones of your color from the stone quarry and place them on your player stats zone. Maximum of 5 per player.-->
-                    <!--For example, if you only have space for 2 stones and you choose this action, you can only add 2 stones.-->
-
-                <!--</p>-->
-                <!--</p>-->
-
-                <!--<p>-->
-                    <!--<strong>2.</strong> Place 1 Stone On A Ship:-->
-                    <!--Take 1 stone from your supply sled token and place it on any empty space on a ship that has not yet sailed to a site.-->
-                <!--</p>-->
-                <!--<p><strong>3.</strong> Dock 1 ship to a site board. You must observe 2 conditions, however:-->
-
-                    <!--The ship must already be loaded with at least the minimum required number of stones. The gray stone symbols at the bow of the ship indicate the minimum number for that ship. This number varies from ship to ship.-->
-
-                    <!--The site to which the ship is sailing must still have an open dock. In other words, no other ship can have sailed to it in this round.-->
-
-                    <!--The ship's stones are then unloaded by their owner (indicated by color) in order from front to back and delivered to the site - beginning with the stone placed closest to the front. Ignore any empty spaces on the ship.-->
-
-                <!--<p>At each of the 5 sites, there are different rules for what the stone's owner will receive for each stone delivered, and when they will receive it. The market and the pyramid are assessed immediately. The temple is assessed at the end of each round.-->
-
-                    <!--The burial chamber and the obelisks are not assessed until the end of the game.-->
-                <!--</p>-->
-
-                <!--<strong>4.</strong> You may sail a ship. You may even sail a ship when you do not have a stone of your own on it. The only requirement is that both of the above conditions must be met. After a site has been sailed to, the now-empty ship remains at the site's mooring area until the end of the round.-->
-
-                <!--This way, you can see that no more ships can sail to that site during that same round. No more than one ship can sail to any given site per round.-->
-                <!--</p>-->
-                <!--<h3>End Of Round</h3>-->
-                <!--<p>When all 4 ships have been sailed to the sites, the round ends immediately. The pyramid yields points immediately for each stone delivered, in accordance with the number value indicated on the space.-->
-
-                    <!--Now the temple is assessed. Each stone visible from above yields 1 point. In other words, stones covered by other stones no longer yield any points.-->
-                <!--</p>-->
-
-                <!--<h3>End of the Game</h3>-->
-                <!--<p>The game ends after 6 rounds.-->
-
-                    <!--Then the final point assessment, or scoring, takes place.-->
-
-                    <!--Final Point Assessment (scoring)-->
-                    <!--Start by assessing the stones in the burial chamber.-->
-
-                    <!--Then it is time to assess the obelisks.-->
-                    <!--The player with the most points is the winner.-->
-
-                    <!--In case of a tie: The player with the greater number of stones on his or her supply sled token is the winner. If this is also a tie, the tied players share first place.-->
-
-
-                <!--</p>-->
-            <!--</div>-->
-            <!--<div class="modal-footer">-->
-                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Let's Play</button>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-<!--</div>-->
 <!--</body>-->
 <!--</html>-->
 
