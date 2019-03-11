@@ -265,7 +265,6 @@ body {
 }
 
 .pyramid {
-    background-color: black;
     border: 1px solid black;
     height: 20%;
     width: 100%;
@@ -273,7 +272,6 @@ body {
 }
 
 .pyramid-container {
-    background-color: black;
     background-image: url(game_pieces/pyramids.jpg);
     background-repeat: no-repeat;
     background-size: contain;
@@ -298,28 +296,14 @@ body {
 }
 
 .pyramid-bottom {
-    background-color: white;
-    border: 1px solid black;
+    border: 1px solid white;
     box-sizing: border-box;
     height: 33.1%;
     width: 30%;
 }
 
-/* .pyramid-middle {
-    background-color: rgba(255, 255, 255, 0.527);
-    border: 1px solid black;
-    box-sizing: border-box;
-    height: 33.1%;
-    width: 30%;
-    position: absolute;
-    top: 16.55%;
-    left: 15%;
-    z-index: 1;
-} */
-
 .pyramid-block-container > div:nth-child(10){
-    background-color: rgba(122, 122, 122, 0);
-    border: 1px solid black;
+    border: 1px solid white;
     box-sizing: border-box;
     height: 33.1%;
     width: 30%;
@@ -330,8 +314,7 @@ body {
 }
 
 .pyramid-block-container > div:nth-child(11){
-    background-color: rgba(122, 122, 122, 0);
-    border: 1px solid black;
+    border: 1px solid white;
     box-sizing: border-box;
     height: 33.1%;
     width: 30%;
@@ -342,8 +325,7 @@ body {
 }
 
 .pyramid-block-container > div:nth-child(12){
-    background-color: rgba(122, 122, 122, 0);
-    border: 1px solid black;
+    border: 1px solid white;
     box-sizing: border-box;
     height: 33.1%;
     width: 30%;
@@ -354,8 +336,7 @@ body {
 }
 
 .pyramid-block-container > div:nth-child(13){
-    background-color: rgba(122, 122, 122, 0);
-    border: 1px solid black;
+    border: 1px solid white;
     box-sizing: border-box;
     height: 33.1%;
     width: 30%;
@@ -366,8 +347,7 @@ body {
 }
 
 .pyramid-top {
-    background-color: rgba(0, 0, 0, 0);
-    border: 1px solid black;
+    border: 1px solid white;
     box-sizing: border-box;
     height: 33.1%;
     width: 30%;

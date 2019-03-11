@@ -42,8 +42,10 @@ class Game{
     changePlayerTurn(){
         if (this.currentTurn % 2 === 0){
             this.currentPlayer = this.playersArray[0];
+            this.playersArray[0].playerID.currentPlayer = this.currentPlayer;
         } else {
             this.currentPlayer = this.playersArray[1];
+            this.playersArray[1].playerID.currentPlayer = this.currentPlayer;
         }
     }
 
@@ -60,13 +62,10 @@ class Game{
     }
 
     playerHandler(){
-        if (this.currentPlayer === this.playersArray[0]){
-            this.playersArray[0].playerCubes = this.currentPlayer.playerID.currentBlockCount;
+            this.playersArray[0].playerCubes = this.playersArray[0].playerID.currentBlockCount;
             $('.playerOneBlocks').text(this.playersArray[0].playerCubes);
-        } else {
-            this.playersArray[1].playerCubes = this.currentPlayer.playerID.currentBlockCount;
+            this.playersArray[1].playerCubes = this.playersArray[1].playerID.currentBlockCount;
             $('.playerTwoBlocks').text(this.playersArray[1].playerCubes);
-        }
         this.currentTurn++;
         this.changePlayerTurn();
     }
@@ -90,7 +89,6 @@ class Game{
         this.currentTurn++;
         this.changePlayerTurn();
         if($('.harbor > .ship').length < 2){
-            debugger;
             dock.dockShip();
             this.removeShipsAndSails();
             this.nextRound()
