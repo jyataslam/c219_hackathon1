@@ -8,15 +8,15 @@ class Harbor{
             },
             2: {
                 value: 1,
-                image: 'game_pieces/2copy.jpg'
+                image: 'game_pieces/2cropped.jpg'
             },
             3: {
                 value: 2,
-                image: 'game_pieces/3copy.jpg'
+                image: 'game_pieces/3cropped.jpg'
             },
             4: {
                 value: 3,
-                image: 'game_pieces/4copy.jpg'
+                image: 'game_pieces/4cropped.jpg'
             }
         };
         this.sailingShip = shipFinder;
