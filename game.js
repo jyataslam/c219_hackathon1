@@ -62,10 +62,10 @@ class Game{
     }
 
     playerHandler(){
-            this.playersArray[0].playerCubes = this.playersArray[0].playerID.currentBlockCount;
-            $('.playerOneBlocks').text(this.playersArray[0].playerCubes);
-            this.playersArray[1].playerCubes = this.playersArray[1].playerID.currentBlockCount;
-            $('.playerTwoBlocks').text(this.playersArray[1].playerCubes);
+        this.playersArray[0].playerCubes = this.playersArray[0].playerID.currentBlockCount;
+        $('.playerOneBlocks').text(this.playersArray[0].playerCubes);
+        this.playersArray[1].playerCubes = this.playersArray[1].playerID.currentBlockCount;
+        $('.playerTwoBlocks').text(this.playersArray[1].playerCubes);
         this.currentTurn++;
         this.changePlayerTurn();
     }

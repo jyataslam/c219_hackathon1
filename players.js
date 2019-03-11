@@ -15,13 +15,16 @@ class Players {
     }
 
     rechargeCubes(){
-        debugger;
-        if(this.playerColor === this.currentPlayer.playerID.playerColor){
+        if(this.currentPlayer === null){
+            alert('It\'s the first player\'s turn.');
+        }else if(this.playerColor === this.currentPlayer.playerID.playerColor){
             if (this.currentBlockCount <= 2){
                 this.currentBlockCount += 3;
             } else if (this.currentBlockCount >= 3){
                 this.currentBlockCount = 5;
             }    
+        }else{
+            alert(`No cheating!`);
         }
     }
 }
