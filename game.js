@@ -90,7 +90,6 @@ class Game{
         this.currentTurn++;
         this.changePlayerTurn();
         if($('.harbor > .ship').length < 2){
-            debugger;
             dock.dockShip();
             this.removeShipsAndSails();
             this.nextRound()
