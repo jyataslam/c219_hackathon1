@@ -10,21 +10,19 @@ class Players {
     }
 
     playerClick(){
-        this.rechargeCubes();
-        this.playerHandler2(this);
+        if(this.playerColor === this.currentPlayer.playerID.playerColor){
+            this.rechargeCubes();
+            this.playerHandler2(this);    
+        }else{
+            alert(`Not your turn`);
+        }
     }
 
     rechargeCubes(){
-        if(this.currentPlayer === null){
-            alert('It\'s the first player\'s turn.');
-        }else if(this.playerColor === this.currentPlayer.playerID.playerColor){
-            if (this.currentBlockCount <= 2){
-                this.currentBlockCount += 3;
-            } else if (this.currentBlockCount >= 3){
-                this.currentBlockCount = 5;
-            }    
-        }else{
-            alert(`No cheating!`);
-        }
+        if (this.currentBlockCount <= 2){
+            this.currentBlockCount += 3;
+        } else if (this.currentBlockCount >= 3){
+            this.currentBlockCount = 5;
+        }    
     }
 }

@@ -39,7 +39,7 @@ class Temple {
     }
 
     renderShipCubes() {
-        for (var i = this.sailingShip.currentStones.length - 1; i >= 0; i--) {
+        for (var i = 0; i < this.sailingShip.currentStones.length; i++) {
             this.currentStone = $(this.sailingShip.currentStones[i]);
             this.addStonesToArray();
             this.render($('.temple-block'), this.currentStone);
