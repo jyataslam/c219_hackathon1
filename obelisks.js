@@ -39,21 +39,21 @@ class Obelisks {
     }
 
     renderShipCubes() {
-        for (var i = this.sailingShip.currentStones.length - 1; i >= 0; i--) {
+        for (var i = 0; i < this.sailingShip.currentStones.length; i++) {
             this.currentStone = $(this.sailingShip.currentStones[i]);
-            this.stoneColor = this.currentStone.css('background-color');
+            this.stoneColor = this.currentStone[0].style.backgroundColor;
             var blackStoneContainer = $('.obelisks-column > .black');
             var whiteStoneContainer = $('.obelisks-column > .white');
             var blackStoneCounter = $('.black > .stone');
             var whiteStoneCounter = $('.white > .stone');
-            if(this.stoneColor === 'rgb(0, 0, 0)'){
+            if(this.stoneColor === 'black'){
                 if(blackStoneCounter.length === 0){
                     this.render(blackStoneContainer, this.currentStone);
                 }else{
                     this.currentStone.remove();
                 }
                 this.cubesCounter.black++;
-                blackStoneCounter.text(this.cubesCounter.black).css('color', 'white');
+                blackStoneCounter.text(this.cubesCounter.black);
             }else if(this.stoneColor === 'white'){
                 if(whiteStoneCounter.length === 0){
                     this.render(whiteStoneContainer, this.currentStone);

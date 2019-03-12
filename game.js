@@ -3,7 +3,7 @@ class Game{
         this.name = name;
         this.shipSailed = null;
         this.dockClicked = null;
-        this.newGame = null;
+        this.newHarbor = null;
         this.burial_chamber = null;
         this.temple = null;
         this.obelisks = null;
@@ -15,7 +15,8 @@ class Game{
         this.playersArray = [];
         this.playersColor = ['white', 'black', 'gray', 'brown'];
         this.playerHandler = this.playerHandler.bind(this);
-        this.shipHandler = this.shipHandler.bind(this);
+        this.shipSailHandler = this.shipSailHandler.bind(this);
+        this.shipBlockHandler = this.shipBlockHandler.bind(this);
         this.dockHandler = this.dockHandler.bind(this);
         this.pyramidStoneHandler = this.pyramidStoneHandler.bind(this);
 
@@ -42,15 +43,18 @@ class Game{
     changePlayerTurn(){
         if (this.currentTurn % 2 === 0){
             this.currentPlayer = this.playersArray[0];
-            this.playersArray[0].playerID.currentPlayer = this.currentPlayer;
         } else {
             this.currentPlayer = this.playersArray[1];
-            this.playersArray[1].playerID.currentPlayer = this.currentPlayer;
+        }
+        this.playersArray[0].playerID.currentPlayer = this.currentPlayer;
+        this.playersArray[1].playerID.currentPlayer = this.currentPlayer;
+        for(var i = 0; i < this.newHarbor.allShips.length; i++){
+            this.newHarbor.allShips[i].currentPlayer = this.currentPlayer
         }
     }
 
     addHarbor(){
-        this.newGame = new Harbor(this.shipHandler);
+        this.newHarbor = new Harbor(this.shipSailHandler, this.shipBlockHandler);
     }
 
     addArea(){
@@ -70,12 +74,17 @@ class Game{
         this.changePlayerTurn();
     }
 
-    shipHandler(ship){
+    shipSailHandler(ship){
         this.shipSailed = ship;
         this.burial_chamber.sailingShip = ship;
         this.temple.sailingShip = ship;
         this.pyramid.sailingShip = ship;
         this.obelisks.sailingShip = ship;
+    }
+
+    shipBlockHandler(){
+        this.currentTurn++;
+        this.changePlayerTurn();
     }
 
     dockHandler(dock){
@@ -106,7 +115,6 @@ class Game{
 
     nextRound(){
         this.currentRound++;
-        this.burial_chamber.currentRound = this.currentRound;
         if(this.currentRound < 7){
             $('.round-container > span').text(`Round ${this.currentRound}`);
             this.burial_chamber.docked = false;
@@ -123,6 +131,9 @@ class Game{
             this.obelisks.sailingShip = null;
             this.obelisks.dockSelected = null;
             this.addHarbor();
+            for(var i = 0; i < this.newHarbor.allShips.length; i++){
+                this.newHarbor.allShips[i].currentPlayer = this.currentPlayer
+            }    
             this.addTemplePoints();
             this.render($('.player-one-score'), `Score: ${this.playersArray[0].playerPoints}`);
             this.render($('.player-two-score'), `Score: ${this.playersArray[1].playerPoints}`);    
